@@ -3,168 +3,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DPTR | Digital & AI Transformation</title>
+    <title>DPTR - Transforming Complex Data into Meaningful Human Impact</title>
     <style>
-        /* Basic styling for consistency */
-        body {
-            font-family: Arial, sans-serif;
+        /* Global Styles */
+        :root {
+            --primary-blue: #4169E1;
+            --secondary-purple: #9370DB;
+            --accent-teal: #20B2AA;
+            --dark-bg: #0A192F;
+            --light-bg: #E6EEFF;
+            --text-dark: #1E2A45;
+            --text-light: #F8F9FA;
+            --gradient-blue: linear-gradient(135deg, #4169E1, #20B2AA);
+            --gradient-purple: linear-gradient(135deg, #9370DB, #4169E1);
+            --gradient-dark: linear-gradient(135deg, #0A192F, #1E2A45);
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #0f172a;
-            color: #fff;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
         
-        a {
-            color: #a78bfa;
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light-bg);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
             text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
         
-        a:hover {
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .cta-button {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-dark);
+            color: var(--text-light);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background: rgba(65, 105, 225, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Interactive Visualization Section */
+        .interactive-visualization {
+            padding: 100px 0;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interactive-visualization h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .interactive-visualization h2 span {
+            color: var(--secondary-purple);
+        }
+        
+        .interactive-visualization p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .visualization-container {
+            position: relative;
+            height: 500px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        
+        .data-flow {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .sources, .destinations {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 200px;
+        }
+        
+        .sources h3, .destinations h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-purple);
+        }
+        
+        .source-item, .destination-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .source-item:hover, .destination-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .source-item img, .destination-item img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .terminal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 300px;
+            background: #1E1E1E;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .terminal-header {
+            background: #333;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .terminal-dot.red {
+            background: #FF5F56;
+        }
+        
+        .terminal-dot.yellow {
+            background: #FFBD2E;
+        }
+        
+        .terminal-dot.green {
+            background: #27C93F;
+        }
+        
+        .terminal-content {
+            padding: 15px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #A9B7C6;
+            height: calc(100% - 32px);
+            overflow: auto;
+        }
+        
+        .terminal-line {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        
+        .terminal-prompt {
+            color: #6A8759;
+            margin-right: 10px;
+        }
+        
+        .terminal-command {
+            color: #CC7832;
+        }
+        
+        .terminal-output {
+            color: #A9B7C6;
+        }
+        
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary-purple), var(--primary-blue));
+            transform-origin: left center;
+        }
+        
+        .connection-line::before, .connection-line::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--secondary-purple);
+            top: -2px;
+        }
+        
+        .connection-line::before {
+            left: 0;
+        }
+        
+        .connection-line::after {
+            right: 0;
+            background: var(--primary-blue);
+        }
+        
+        .data-character {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+        }
+        
+        /* Value Proposition Section */
+        .value-proposition {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .value-proposition h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+        
+        .pillars {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .pillar {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .pillar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .pillar p {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .pillar-cta {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .pillar-cta:hover {
             text-decoration: underline;
+        }
+        
+        /* Industry Focus Section */
+        .industry-focus {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+        
+        .industry-focus h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+        
+        .industries {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .industry {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .industry:hover {
+            transform: translateY(-5px);
+        }
+        
+        .industry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-blue);
+        }
+        
+        .industry-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .industry h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .industry p {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .industry-cta {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .industry-cta:hover {
+            text-decoration: underline;
+        }
+        
+        /* Featured Case Study */
+        .featured-case-study {
+            padding: 100px 0;
+            background: var(--gradient-dark);
+            color: var(--text-light);
+        }
+        
+        .case-study-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .case-study-content {
+            flex: 1;
+        }
+        
+        .case-study-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .case-study-content p {
+            margin-bottom: 30px;
+        }
+        
+        .case-study-visual {
+            flex: 1;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Testimonial Section */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .testimonials h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial {
+            text-align: center;
+        }
+        
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .testimonial-company {
+            color: var(--text-dark);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .client-logo {
+            height: 40px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .contact p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-dark);
+        }
+        
+        .contact-cta {
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 50px 0;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .footer-logo {
+            height: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-info {
+            max-width: 300px;
+        }
+        
+        .footer-info p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-blue);
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <a href="/"><img src="/assets/images/dptr_logo.svg" alt="DPTR Logo"/></a>
-        <nav>
-            <a href="/capabilities">Capabilities</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/technologies">Technologies</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-            <a href="/contact">Get started</a>
-        </nav>
+        <div class="container header-container">
+            <a href="index.html">
+                <img src="logo.png" alt="DPTR Logo" class="logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="approach.html">Our Approach</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </div>
     </header>
 
-    <main>
-        <section id="hero">
-            <h1>Redefining What's Possible Through Human-Centered AI</h1>
-            <p>DPTR transforms obstacles into opportunities by building data-driven ecosystems that create measurable competitive advantage.</p>
-            <div class="cta-buttons">
-                <a href="/capabilities">Explore our capabilities</a>
-                <a href="/contact">Book a discovery call</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transforming Complex Data into Meaningful Human Impact</h1>
+            <p>We combine 15 years of human-centered design expertise with advanced data capabilities to solve the problems others can't.</p>
+            <div class="hero-buttons">
+                <a href="approach.html" class="cta-button">Discover Our Approach</a>
+                <a href="contact.html" class="secondary-button">Book a Discovery Session</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="limitless-framework">
-            <h2>The LIMITLESS Framework</h2>
-            <p>Our proprietary methodology for solving complex problems and creating measurable competitive advantage</p>
+    <!-- Interactive Visualization Section -->
+    <section class="interactive-visualization">
+        <div class="container">
+            <h2>Meltano gives data engineers <span>control and visibility</span> of their pipelines</h2>
+            <p>No more black box. Let your creativity flow.</p>
             
-            <div class="framework-items">
-                <div class="framework-item">
-                    <h3>L</h3>
-                    <h4>Leverage Insights from Multiple Disciplines</h4>
-                    <p>We initiate projects with a broad, transdisciplinary gathering of insights, conducting workshops and brainstorming sessions involving experts from various fields to define problems comprehensively.</p>
+            <div class="visualization-container">
+                <div class="data-flow">
+                    <div class="sources">
+                        <h3>Sources</h3>
+                        <div class="source-item">
+                            <img src="saas-icon.svg" alt="SaaS API">
+                            SaaS API
+                        </div>
+                        <div class="source-item">
+                            <img src="database-icon.svg" alt="Database">
+                            Database
+                        </div>
+                        <div class="source-item">
+                            <img src="file-icon.svg" alt="File">
+                            File
+                        </div>
+                        <div class="source-item">
+                            <img src="custom-icon.svg" alt="Custom Source">
+                            Custom Source
+                        </div>
+                    </div>
+                    
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <div class="terminal-dot red"></div>
+                                <div class="terminal-dot yellow"></div>
+                                <div class="terminal-dot green"></div>
+                            </div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">dptr run data-pipeline --target=snowflake</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-output">Initializing pipeline...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-output">Connecting to sources...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-output">Transforming data...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-output">Loading to destination...</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-output">Pipeline completed successfully!</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destinations">
+                        <h3>Destinations</h3>
+                        <div class="destination-item">
+                            <img src="database-icon.svg" alt="Database">
+                            Database
+                        </div>
+                        <div class="destination-item">
+                            <img src="vector-db-icon.svg" alt="Vector DB">
+                            Vector DB
+                        </div>
+                        <div class="destination-item">
+                            <img src="warehouse-icon.svg" alt="Data Warehouse">
+                            Data Warehouse
+                        </div>
+                        <div class="destination-item">
+                            <img src="lake-icon.svg" alt="Data Lake">
+                            Data Lake
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="framework-item">
-                    <h3>I</h3>
-                    <h4>Iterate with Agile and Lean Methods</h4>
-                    <p>We employ agile development cycles for rapid prototyping, testing, and refinement, focusing on building minimal viable products (MVPs) to test ideas and gather user feedback quickly.</p>
+                <div class="connection-lines">
+                    <!-- Connection lines will be added with JavaScript -->
                 </div>
                 
-                <div class="framework-item">
-                    <h3>M</h3>
-                    <h4>Model Solutions Using Computational Design</h4>
-                    <p>We use data analytics, AI, and machine learning to generate innovative solutions and model outcomes, integrating digital twin technologies to simulate and test solutions in virtual environments.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>I</h3>
-                    <h4>Integrate Systemic Thinking</h4>
-                    <p>We continuously evaluate how solutions fit within larger systems and societal contexts, using systemic feedback to refine solutions, ensuring they are robust and adaptable to complex environments.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>T</h3>
-                    <h4>Technology-Driven Ideation</h4>
-                    <p>We harness the latest in technology to enhance creative processes and operational efficiency, continuously updating our toolset to include state-of-the-art software and hardware supporting design and development.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>L</h3>
-                    <h4>Leadership in a Collaborative Culture</h4>
-                    <p>We promote an adaptive leadership style where responsibilities are shared based on expertise and project needs, fostering a culture of participation, openness, and continuous learning.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>E</h3>
-                    <h4>Ethical and Sustainable Design</h4>
-                    <p>We prioritize sustainability and ethical considerations in all phases of design and development, regularly reviewing and updating practices to adhere to the highest standards of social responsibility.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>S</h3>
-                    <h4>Structured Feedback and Improvement</h4>
-                    <p>We implement structured feedback loops involving all stakeholders, including end-users, to gather insights and identify areas for improvement, encouraging an environment where feedback is seen as a tool for growth and innovation.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>S</h3>
-                    <h4>Scalability and Flexibility</h4>
-                    <p>We design processes and solutions with scalability in mind, allowing for easy adaptation as needs evolve, maintaining flexibility in methodologies, allowing the team to pivot or adapt strategies based on real-world testing and feedback.</p>
+                <div class="data-character">
+                    <!-- Character illustration -->
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="core-capabilities">
-            <h2>Our Three Core Capabilities</h2>
-            <p>What makes DPTR unique is the combination of these three capabilities - so vital to organisations and so rare to find in one partner</p>
-            
-            <div class="capabilities">
-                <div class="capability">
-                    <h3>Deep Organisational Understanding</h3>
-                    <p>We immerse ourselves in your world—quickly mapping challenges, workflows, competitive landscapes, and organisational culture. This systems-thinking mindset reveals possibilities beyond one-off technology projects.</p>
-                    <a href="/capabilities#deep-understanding">Learn more</a>
+    <!-- Value Proposition Section -->
+    <section class="value-proposition">
+        <div class="container">
+            <h2>Where Human Understanding Meets Data Intelligence</h2>
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <!-- Icon for Deep Human Insight -->
+                    </div>
+                    <h3>Deep Human Insight</h3>
+                    <p>We uncover the real problems behind the symptoms through our 15 years of service design experience.</p>
+                    <a href="approach.html" class="pillar-cta">Learn More →</a>
                 </div>
-                
-                <div class="capability">
-                    <h3>Strategic Vision & Opportunity Identification</h3>
-                    <p>Once we understand your landscape, we pinpoint the breakthrough opportunities others miss. From AI-powered strategies to digital transformation roadmaps, we bridge the gap between ambition and execution.</p>
-                    <a href="/capabilities#strategic-vision">Learn more</a>
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <!-- Icon for Data Orchestration -->
+                    </div>
+                    <h3>Data Orchestration</h3>
+                    <p>We bring order to data chaos, creating unified systems that generate unprecedented value.</p>
+                    <a href="approach.html" class="pillar-cta">Learn More →</a>
                 </div>
-                
-                <div class="capability">
-                    <h3>Agile, Embedded Delivery</h3>
-                    <p>Strategy alone doesn't drive impact—implementation does. That's why we embed with your teams to co-create solutions, transfer knowledge, and deliver results quickly. Our agile approach builds a future-proofed foundation.</p>
-                    <a href="/capabilities#agile-delivery">Learn more</a>
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <!-- Icon for Transformative Impact -->
+                    </div>
+                    <h3>Transformative Impact</h3>
+                    <p>We deliver solutions that improve lives, not just systems, with measurable outcomes.</p>
+                    <a href="case-studies.html" class="pillar-cta">See Our Impact →</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="case-studies">
-            <h2>Our Impact Across Industries</h2>
-            <p>See how we've applied our capabilities to solve complex problems and create measurable competitive advantage</p>
-            
-            <div class="industry-cases">
-                <div class="case">
+    <!-- Industry Focus Section -->
+    <section class="industry-focus">
+        <div class="container">
+            <h2>Solving Wicked Problems Across Industries</h2>
+            <div class="industries">
+                <div class="industry">
+                    <div class="industry-icon">
+                        <!-- Hospitality Icon -->
+                    </div>
                     <h3>Hospitality</h3>
-                    <h4>Channel Manager Competitive Analysis</h4>
-                    <p>We analyzed 17 different channel manager solutions to identify integration opportunities that competitors had missed, leading to 30% improved booking efficiency and 28% improved resource utilization.</p>
-                    <a href="/case-studies#hospitality">Read case study</a>
+                    <p>Transforming guest experiences through intelligent data systems and personalized interactions.</p>
+                    <a href="industries.html#hospitality" class="industry-cta">Explore Hospitality Solutions →</a>
                 </div>
-                
-                <div class="case">
+                <div class="industry">
+                    <div class="industry-icon">
+                        <!-- Education Icon -->
+                    </div>
                     <h3>Education</h3>
-                    <h4>AITSL Teacher Support System</h4>
-                    <p>We created a real-time intelligence layer that enhances digital presence by listening to teacher interactions, processing that data, and responding with personalized support, reducing teacher isolation by 42%.</p>
-                    <a href="/case-studies#education">Read case study</a>
+                    <p>Empowering educators with human-centered data solutions that improve outcomes for students and teachers.</p>
+                    <a href="industries.html#education" class="industry-cta">Explore Education Solutions →</a>
+                </div>
+                <div class="industry">
+                    <div class="industry-icon">
+                        <!-- Membership Icon -->
+                    </div>
+                    <h3>Membership & Loyalty</h3>
+                    <p>Creating personalized experiences that build lasting relationships and drive engagement.</p>
+                    <a href="industries.html#membership" class="industry-cta">Explore Membership Solutions →</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="cta">
-            <h2>Ready to transform your organisation?</h2>
-            <p>Book a discovery call to discuss how DPTR can help your organisation harness the power of AI, technology, and data to create new opportunities and secure long-term competitive advantage.</p>
-            <a href="/contact">Get started</a>
-        </section>
-    </main>
+    <!-- Featured Case Study -->
+    <section class="featured-case-study">
+        <div class="container case-study-container">
+            <div class="case-study-content">
+                <h2>Hotel AI Companion: Transforming Guest Experiences</h2>
+                <p>We developed an AI-powered companion system for a major hotel chain that unified data from a dozen disparate systems to create personalized guest experiences.</p>
+                <p>The result: 30% increase in guest satisfaction and 25% improvement in operational efficiency.</p>
+                <a href="case-studies.html#hotel-ai" class="cta-button">Read the Full Story</a>
+            </div>
+            <div class="case-study-visual">
+                <!-- Case study visualization -->
+            </div>
+        </div>
+    </section>
 
+    <!-- Testimonial Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial">
+                    <p>"DPTR's unique approach to combining human-centered design with data expertise transformed how we understand and serve our customers. They didn't just build a data warehouse; they helped us reimagine our entire business."</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-company">CIO, Major Hotel Chain</div>
+                </div>
+            </div>
+            <div class="client-logos">
+                <!-- Client logos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Data into Impact?</h2>
+            <p>Start a conversation about how we can help solve your organization's most complex challenges.</p>
+            <div class="contact-cta">
+                <a href="contact.html" class="cta-button">Book a Discovery Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p>Made with Manus</p>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <img src="logo-white.png" alt="DPTR Logo" class="footer-logo">
+                <p>DPTR brings together human-centered design, strategic vision, and data expertise to help organizations solve their most complex challenges.</p>
+                <div class="social-links">
+                    <!-- Social media icons -->
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="approach.html">Our Approach</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Industries</h3>
+                <ul>
+                    <li><a href="industries.html#hospitality">Hospitality</a></li>
+                    <li><a href="industries.html#education">Education</a></li>
+                    <li><a href="industries.html#membership">Membership & Loyalty</a></li>
+                    <li><a href="industries.html#other">Other Industries</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                    <li><a href="contact.html#book">Book a Session</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 DPTR. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        // JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create connection lines between sources/destinations and terminal
+            const sources = document.querySelectorAll('.source-item');
+            const destinations = document.querySelectorAll('.destination-item');
+            const terminal = document.querySelector('.terminal');
+            const connectionLines = document.querySelector('.connection-lines');
+            
+            // Function to create connection lines
+            function createConnectionLine(from, to) {
+                const fromRect = from.getBoundingClientRect();
+                const toRect = to.getBoundingClientRect();
+                const containerRect = connectionLines.getBoundingClientRect();
+                
+                const fromX = fromRect.right - containerRect.left;
+                const fromY = fromRect.top + fromRect.height / 2 - containerRect.top;
+                const toX = toRect.left - containerRect.left;
+                const toY = toRect.top + toRect.height / 2 - containerRect.top;
+                
+                const distance = Math.sqrt(Math.pow(toX - fromX, 2) + Math.pow(toY - fromY, 2));
+                const angle = Math.atan2(toY - fromY, toX - fromX) * 180 / Math.PI;
+                
+                const line = document.createElement('div');
+                line.classList.add('connection-line');
+                line.style.width = `${distance}px`;
+                line.style.left = `${fromX}px`;
+                line.style.top = `${fromY}px`;
+                line.style.transform = `rotate(${angle}deg)`;
+                
+                connectionLines.appendChild(line);
+            }
+            
+            // Create connection lines for sources
+            sources.forEach(source => {
+                createConnectionLine(source, terminal);
+                
+                // Add hover effect
+                source.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(147, 112, 219, 0.3)';
+                    
+                    // Update terminal content
+                    const terminalContent = document.querySelector('.terminal-content');
+                    const sourceName = this.textContent.trim();
+                    
+                    const newLine = document.createElement('div');
+                    newLine.classList.add('terminal-line');
+                    newLine.innerHTML = `<span class="terminal-prompt">$</span><span class="terminal-command">dptr connect --source="${sourceName}"</span>`;
+                    
+                    const outputLine = document.createElement('div');
+                    outputLine.classList.add('terminal-line');
+                    outputLine.innerHTML = `<span class="terminal-output">Connected to ${sourceName} successfully!</span>`;
+                    
+                    terminalContent.appendChild(newLine);
+                    terminalContent.appendChild(outputLine);
+                    terminalContent.scrollTop = terminalContent.scrollHeight;
+                });
+                
+                source.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+            
+            // Create connection lines for destinations
+            destinations.forEach(destination => {
+                createConnectionLine(terminal, destination);
+                
+                // Add hover effect
+                destination.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(65, 105, 225, 0.3)';
+                    
+                    // Update terminal content
+                    const terminalContent = document.querySelector('.terminal-content');
+                    const destinationName = this.textContent.trim();
+                    
+                    const newLine = document.createElement('div');
+                    newLine.classList.add('terminal-line');
+                    newLine.innerHTML = `<span class="terminal-prompt">$</span><span class="terminal-command">dptr load --destination="${destinationName}"</span>`;
+                    
+                    const outputLine = document.createElement('div');
+                    outputLine.classList.add('terminal-line');
+                    outputLine.innerHTML = `<span class="terminal-output">Data loaded to ${destinationName} successfully!</span>`;
+                    
+                    terminalContent.appendChild(newLine);
+                    terminalContent.appendChild(outputLine);
+                    terminalContent.scrollTop = terminalContent.scrollHeight;
+                });
+                
+                destination.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
