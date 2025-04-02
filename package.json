@@ -1,0 +1,17 @@
+{
+  "name": "dptr_website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server",
+    "build": "echo \"Building website...\" && mkdir -p ../build && cp -r * ../build/ || true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "DPTR Website - Transforming Complex Data into Meaningful Human Impact",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

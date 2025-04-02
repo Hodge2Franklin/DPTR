@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - DPTR</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <img src="../images/dptr-logo.svg" alt="DPTR Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="approach.html">Our Approach</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Book a Discovery Session</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Our Impact in Action</h1>
+            <p>Explore how we've solved complex challenges across industries.</p>
+        </div>
+    </section>
+
+    <section class="case-studies-filter">
+        <div class="container">
+            <div class="filter-controls">
+                <button class="filter-button active" data-filter="all">All</button>
+                <button class="filter-button" data-filter="hospitality">Hospitality</button>
+                <button class="filter-button" data-filter="education">Education</button>
+                <button class="filter-button" data-filter="membership">Membership</button>
+                <button class="filter-button" data-filter="other">Other</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-studies-grid">
+        <div class="container">
+            <div class="case-studies">
+                <div class="case-study-card" id="quest" data-category="hospitality">
+                    <div class="case-study-image">
+                        <!-- Placeholder for image -->
+                        <div style="background-color: #4169E1; height: 200px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; border-radius: 10px 10px 0 0;">Quest Apartments Image</div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">Hospitality</div>
+                        <h3>Quest Apartments: Transforming Guest Experience</h3>
+                        <p>Unifying guest data across 170+ properties to create personalized experiences that increased guest satisfaction and loyalty.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <div class="metric-value">27%</div>
+                                <div class="metric-label">Increase in Guest Satisfaction</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">35%</div>
+                                <div class="metric-label">Growth in Repeat Bookings</div>
+                            </div>
+                        </div>
+                        <a href="#quest-detail" class="case-study-link">Read Case Study →</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" id="epworth" data-category="healthcare">
+                    <div class="case-study-image">
+                        <!-- Placeholder for image -->
+                        <div style="background-color: #9370DB; height: 200px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; border-radius: 10px 10px 0 0;">Epworth Healthcare Image</div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">Healthcare</div>
+                        <h3>Epworth Healthcare: Unified Patient Journey</h3>
+                        <p>Creating a unified patient data platform that improved care coordination, patient outcomes, and operational efficiency.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <div class="metric-value">42%</div>
+                                <div class="metric-label">Reduction in Administrative Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">18%</div>
+                                <div class="metric-label">Improvement in Patient Satisfaction</div>
+                            </div>
+                        </div>
+                        <a href="#epworth-detail" class="case-study-link">Read Case Study →</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card" id="aedc" data-category="education">
+                    <div class="case-study-image">
+                        <!-- Placeholder for image -->
+                        <div style="background-color: #20B2AA; height: 200px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; border-radius: 10px 10px 0 0;">AEDC Image</div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="case-study-category">Education</div>
+                        <h3>AEDC: Data-Driven Educational Insights</h3>
+                        <p>Transforming complex educational data into actionable insights for policy makers, educators, and communities.</p>
+                        <div class="case-study-metrics">
+                            <div class="metric">
+                                <div class="metric-value">3.2M</div>
+                                <div class="metric-label">Student Records Analyzed</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">85%</div>
+                                <div class="metric-label">Increase in Data Utilization</div>
+                            </div>
+                        </div>
+                        <a href="#aedc-detail" class="case-study-link">Read Case Study →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quest-detail" class="case-study-detail">
+        <div class="container">
+            <div class="case-study-header">
+                <h2>Quest Apartments: Transforming Guest Experience</h2>
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Client:</span>
+                        <span class="meta-value">Quest Apartments</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Industry:</span>
+                        <span class="meta-value">Hospitality</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Timeline:</span>
+                        <span class="meta-value">12 months</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-sections">
+                <div class="case-study-section">
+                    <h3>The Challenge</h3>
+                    <p>Quest Apartments, with over 170 properties across Australia, New Zealand, and Fiji, was struggling with fragmented guest data across multiple property management systems, booking platforms, and customer touchpoints. This fragmentation made it impossible to create a unified view of guests, resulting in inconsistent experiences, missed personalization opportunities, and limited ability to drive loyalty and repeat bookings.</p>
+                    <p>Key challenges included:</p>
+                    <ul>
+                        <li>Disparate data across 170+ properties with different management systems</li>
+                        <li>Inability to recognize returning guests across properties</li>
+                        <li>Limited insights into guest preferences and behaviors</li>
+                        <li>Inconsistent guest experiences across the portfolio</li>
+                        <li>Inefficient marketing and loyalty programs due to data silos</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-section">
+                    <h3>Our Approach</h3>
+                    <p>We applied our human-centered data methodology to understand the guest journey from both the guest and property perspective, identifying key moments where data could enhance the experience.</p>
+                    <ol>
+                        <li><strong>Deep Immersion:</strong> We conducted extensive interviews with guests, property managers, and staff to understand the current experience and pain points.</li>
+                        <li><strong>Problem Mapping:</strong> We created detailed maps of the guest journey and identified critical data gaps and opportunities.</li>
+                        <li><strong>Data Strategy:</strong> We designed a unified guest data platform that could integrate with all existing property management systems.</li>
+                        <li><strong>Solution Design:</strong> We created a guest recognition system, preference engine, and personalization platform.</li>
+                        <li><strong>Implementation:</strong> We deployed the solution across all properties with a phased approach.</li>
+                        <li><strong>Continuous Evolution:</strong> We established metrics and feedback loops to continuously improve the system.</li>
+                    </ol>
+                </div>
+
+                <div class="case-study-section">
+                    <h3>The Solution</h3>
+                    <p>We developed a comprehensive Guest Experience Platform that unified data across all properties and touchpoints, creating a single view of each guest regardless of which properties they visited.</p>
+                    <p>Key components included:</p>
+                    <ul>
+                        <li><strong>Unified Guest Profile:</strong> A central repository of guest information, preferences, and history</li>
+                        <li><strong>Cross-Property Recognition:</strong> System to identify returning guests across any property</li>
+                        <li><strong>Preference Engine:</strong> AI-powered system to identify and track guest preferences</li>
+                        <li><strong>Personalization Platform:</strong> Tools for staff to deliver personalized experiences</li>
+                        <li><strong>Analytics Dashboard:</strong> Insights into guest behavior, satisfaction, and loyalty</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-section">
+                    <h3>The Impact</h3>
+                    <div class="impact-metrics">
+                        <div class="impact-metric">
+                            <div class="metric-value">27%</div>
+                            <div class="metric-label">Increase in Guest Satisfaction</div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-value">35%</div>
+                            <div class="metric-label">Growth in Repeat Bookings</div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-value">42%</div>
+                            <div class="metric-label">Increase in Cross-Property Stays</div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-value">$4.2M</div>
+                            <div class="metric-label">Additional Annual Revenue</div>
+                        </div>
+                    </div>
+                    <p>Beyond the numbers, the platform transformed how Quest Apartments understands and serves its guests. Staff now have the tools and insights to create meaningful, personalized experiences that build lasting relationships with guests.</p>
+                    <blockquote>
+                        "DPTR's approach to combining human understanding with data intelligence transformed how we serve our guests. They didn't just build a system; they helped us reimagine our entire guest experience."
+                        <cite>— Sarah Johnson, Chief Digital Officer, Quest Apartments</cite>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="related-case-studies">
+                <h3>Related Case Studies</h3>
+                <div class="related-cases">
+                    <a href="#epworth-detail" class="related-case">
+                        <div class="related-case-image">
+                            <!-- Placeholder for image -->
+                            <div style="background-color: #9370DB; height: 100px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; border-radius: 5px;">Epworth Healthcare</div>
+                        </div>
+                        <h4>Epworth Healthcare: Unified Patient Journey</h4>
+                    </a>
+                    <a href="#aedc-detail" class="related-case">
+                        <div class="related-case-image">
+                            <!-- Placeholder for image -->
+                            <div style="background-color: #20B2AA; height: 100px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold; border-radius: 5px;">AEDC</div>
+                        </div>
+                        <h4>AEDC: Data-Driven Educational Insights</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Data into Impact?</h2>
+            <p>Start a conversation about how we can help solve your most complex challenges.</p>
+            <a href="contact.html" class="cta-button">Book a Discovery Session</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <img src="../images/dptr-logo-white.svg" alt="DPTR Logo" class="footer-logo">
+                <p>DPTR combines human-centered design with advanced data capabilities to solve complex problems across industries.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <!-- LinkedIn icon placeholder -->
+                    </a>
+                    <a href="#" class="social-link">
+                        <!-- Twitter icon placeholder -->
+                    </a>
+                    <a href="#" class="social-link">
+                        <!-- Facebook icon placeholder -->
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="approach.html">Our Approach</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Industries</h3>
+                <ul>
+                    <li><a href="industries.html#hospitality">Hospitality</a></li>
+                    <li><a href="industries.html#education">Education</a></li>
+                    <li><a href="industries.html#membership">Membership & Loyalty</a></li>
+                    <li><a href="industries.html#other">Other Industries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <ul>
+                    <li>123 Data Street</li>
+                    <li>Melbourne, VIC 3000</li>
+                    <li>Australia</li>
+                    <li>info@dptr.com.au</li>
+                    <li>+61 3 9876 5432</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            &copy; 2025 DPTR. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
