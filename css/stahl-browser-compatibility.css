@@ -1,0 +1,248 @@
+/* Stahl-inspired browser compatibility fixes */
+
+/* Cross-browser flexbox fixes */
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.items-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Fix for Safari flexbox gap issues */
+  .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .grid > * {
+    margin: calc(var(--stahl-card-gap) / 2);
+    width: calc(33.333% - var(--stahl-card-gap));
+  }
+  
+  .grid-2 > * {
+    width: calc(50% - var(--stahl-card-gap));
+  }
+  
+  .grid-3 > * {
+    width: calc(33.333% - var(--stahl-card-gap));
+  }
+  
+  .grid-4 > * {
+    width: calc(25% - var(--stahl-card-gap));
+  }
+  
+  @media (max-width: 992px) {
+    .grid-3 > *, .grid-4 > * {
+      width: calc(50% - var(--stahl-card-gap));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .grid > * {
+      width: 100%;
+    }
+  }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  /* Fix for Firefox animation performance */
+  .stahl-data-flow {
+    will-change: stroke-dashoffset;
+  }
+  
+  /* Fix for Firefox SVG rendering */
+  svg {
+    transform: translateZ(0);
+  }
+}
+
+/* Edge/IE fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* Fallback for grid layout in IE */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Fix for IE flexbox issues */
+  .flex {
+    display: flex;
+  }
+  
+  /* Fix for IE SVG scaling */
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile Safari fixes */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* Fix for iOS fixed position elements */
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  
+  /* Fix for iOS hover effects */
+  .stahl-interactive-card:hover,
+  .stahl-interactive-button:hover,
+  .stahl-interactive-nav-item:hover {
+    transform: none;
+  }
+  
+  /* Add tap highlight for iOS */
+  .stahl-interactive-card,
+  .stahl-interactive-button,
+  .stahl-interactive-nav-item {
+    -webkit-tap-highlight-color: rgba(0, 232, 252, 0.2);
+  }
+}
+
+/* Backdrop filter fallback for unsupported browsers */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  header {
+    background-color: rgba(15, 17, 23, 0.95);
+  }
+}
+
+/* Animation fallbacks for older browsers */
+@supports not (animation-name: stahl-fade-in) {
+  .stahl-fade-in, 
+  .stahl-slide-up, 
+  .stahl-slide-down, 
+  .stahl-slide-left, 
+  .stahl-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .stahl-data-flow {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  /* Increase tap target sizes */
+  nav a, 
+  .stahl-button, 
+  .button {
+    padding: var(--stahl-space-4) var(--stahl-space-6);
+  }
+  
+  /* Disable hover effects that might cause issues */
+  .stahl-hover-effect {
+    display: none;
+  }
+  
+  /* Adjust card interactions for touch */
+  .stahl-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* High contrast mode adjustments */
+@media (forced-colors: active) {
+  /* Ensure visibility in high contrast mode */
+  .stahl-neon-blue,
+  .stahl-neon-pink,
+  .stahl-neon-green {
+    forced-color-adjust: none;
+  }
+  
+  /* Ensure borders are visible */
+  .stahl-card,
+  .stahl-button,
+  .framework-card {
+    border: 2px solid CanvasText;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide unnecessary elements when printing */
+  header, 
+  footer, 
+  .stahl-ticker-background,
+  .stahl-hero-background,
+  .stahl-data-viz-grid,
+  .stahl-button {
+    display: none !important;
+  }
+  
+  /* Ensure text is readable */
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  /* Ensure content is printable */
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  
+  /* Force page breaks appropriately */
+  section {
+    page-break-inside: avoid;
+  }
+  
+  /* Expand all collapsed content */
+  .stahl-accordion-content {
+    max-height: none !important;
+    display: block !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .stahl-animate-pulse,
+  .stahl-neon-pulse,
+  .stahl-point-pulse {
+    animation: none !important;
+  }
+  
+  .stahl-data-flow {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

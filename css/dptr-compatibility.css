@@ -1,0 +1,366 @@
+/* DPTR.com.au Cross-Browser Compatibility
+ * This file ensures cross-browser compatibility for the DPTR.com.au design implementation
+ * while preserving all content and functionality of the original website.
+ */
+
+/* ===== CSS Resets and Normalizations ===== */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Flexbox Fixes ===== */
+/* Fix for older versions of Safari */
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.items-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* ===== Grid Fixes ===== */
+/* Fallback for browsers that don't support CSS Grid */
+@supports not (display: grid) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+  }
+  
+  .grid > * {
+    flex: 0 0 100%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .grid-2 > * {
+    flex: 0 0 calc(50% - 2rem);
+  }
+  
+  .grid-3 > * {
+    flex: 0 0 calc(33.333% - 2rem);
+  }
+  
+  .grid-4 > * {
+    flex: 0 0 calc(25% - 2rem);
+  }
+  
+  @media (max-width: 992px) {
+    .grid-3 > *, .grid-4 > * {
+      flex: 0 0 calc(50% - 2rem);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .grid-2 > *, .grid-3 > *, .grid-4 > * {
+      flex: 0 0 100%;
+    }
+  }
+}
+
+/* ===== CSS Variables Fallback ===== */
+/* For browsers that don't support CSS variables */
+body {
+  /* Primary Colors */
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.section-light {
+  background: linear-gradient(135deg, #a8d0e6, #76b5e3);
+}
+
+.section-dark {
+  background: linear-gradient(135deg, #1a2a4a, #0f172a);
+  color: #ffffff;
+}
+
+.btn-primary, .nav-cta-button {
+  background-color: #7e57c2;
+  color: #ffffff;
+}
+
+.btn-blue {
+  background-color: #29b6f6;
+  color: #ffffff;
+}
+
+.btn-green {
+  background-color: #66bb6a;
+  color: #ffffff;
+}
+
+.btn-pink {
+  background-color: #ec407a;
+  color: #ffffff;
+}
+
+/* ===== Safari Specific Fixes ===== */
+/* Fix for sticky positioning in Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+  header.sticky {
+    position: -webkit-sticky;
+  }
+  
+  /* Fix for border-radius overflow in Safari */
+  .card, .case-study-card {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+}
+
+/* ===== Firefox Specific Fixes ===== */
+@-moz-document url-prefix() {
+  /* Fix for thin fonts in Firefox */
+  body {
+    font-weight: normal;
+  }
+  
+  /* Fix for scrollbar width issues */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+}
+
+/* ===== Edge/IE Specific Fixes ===== */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ specific styles */
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  
+  .card, .case-study-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-light {
+    background: #a8d0e6;
+  }
+  
+  .section-dark {
+    background: #1a2a4a;
+  }
+}
+
+/* ===== Animation Compatibility ===== */
+/* Ensure animations work across browsers */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@-webkit-keyframes slideUp {
+  from { -webkit-transform: translateY(20px); opacity: 0; }
+  to { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Form Element Consistency ===== */
+/* Ensure form elements look consistent across browsers */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/* Remove inner border and padding in Firefox */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/* Restore focus styles unset by previous rule */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/* ===== Image Rendering ===== */
+/* Ensure images render properly across browsers */
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== SVG Rendering ===== */
+/* Fix SVG scaling issues in IE */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ===== Accessibility Improvements ===== */
+/* Improve accessibility across browsers */
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid rgba(126, 87, 194, 0.3);
+  outline-offset: 2px;
+}
+
+/* Skip to main content for keyboard users */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--purple);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+  
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  
+  pre {
+    white-space: pre-wrap !important;
+  }
+  
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

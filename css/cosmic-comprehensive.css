@@ -1,0 +1,625 @@
+/* Comprehensive Cosmic CSS Styling */
+
+/* Global Refinements */
+.futurescape-theme {
+  --cosmic-dark: #1A1A40;
+  --cosmic-darker: #121063;
+  --cosmic-cyan: #00E8FC;
+  --cosmic-purple: #9D4EDD;
+  --cosmic-orange: #FF4B2B;
+  --cosmic-white: #FFFFFF;
+  --cosmic-light-blue: #B8F7FF;
+  
+  color-scheme: dark;
+  scrollbar-color: var(--cosmic-cyan) var(--cosmic-dark);
+  scrollbar-width: thin;
+}
+
+/* Custom Scrollbar */
+.futurescape-theme::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.futurescape-theme::-webkit-scrollbar-track {
+  background: var(--cosmic-dark);
+}
+
+.futurescape-theme::-webkit-scrollbar-thumb {
+  background: var(--cosmic-cyan);
+  border-radius: 4px;
+}
+
+.futurescape-theme::-webkit-scrollbar-thumb:hover {
+  background: var(--cosmic-purple);
+}
+
+/* Selection Styling */
+.futurescape-theme ::selection {
+  background: var(--cosmic-cyan);
+  color: var(--cosmic-dark);
+  text-shadow: none;
+}
+
+/* Focus States */
+.futurescape-theme :focus {
+  outline: 2px solid var(--cosmic-cyan);
+  outline-offset: 2px;
+}
+
+.futurescape-theme :focus:not(:focus-visible) {
+  outline: none;
+}
+
+.futurescape-theme :focus-visible {
+  outline: 2px solid var(--cosmic-cyan);
+  outline-offset: 2px;
+}
+
+/* Enhanced Typography Refinements */
+.futurescape-theme h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--cosmic-cyan), var(--cosmic-purple) 50%, var(--cosmic-light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 232, 252, 0.5);
+}
+
+.futurescape-theme h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  color: var(--cosmic-light-blue);
+  text-shadow: 0 0 15px rgba(0, 232, 252, 0.3);
+}
+
+.futurescape-theme h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--cosmic-cyan);
+}
+
+.futurescape-theme h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--cosmic-purple);
+}
+
+.futurescape-theme p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--cosmic-white);
+}
+
+.futurescape-theme .lead {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--cosmic-light-blue);
+}
+
+.futurescape-theme small {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Enhanced Button Styling */
+.futurescape-theme .cta-button,
+.futurescape-theme button:not([class^="cookie"]) {
+  background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-darker));
+  color: var(--cosmic-white);
+  border: 2px solid var(--cosmic-cyan);
+  border-radius: 30px;
+  padding: 0.8rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.3);
+  z-index: 1;
+  font-size: 1rem;
+}
+
+.futurescape-theme .cta-button:hover,
+.futurescape-theme button:not([class^="cookie"]):hover {
+  background: linear-gradient(135deg, var(--cosmic-cyan), var(--cosmic-purple));
+  color: var(--cosmic-white);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 232, 252, 0.5);
+}
+
+.futurescape-theme .cta-button:active,
+.futurescape-theme button:not([class^="cookie"]):active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 232, 252, 0.3);
+}
+
+/* Enhanced Link Styling */
+.futurescape-theme a:not(.cta-button):not(.logo a):not(nav a) {
+  color: var(--cosmic-cyan);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.futurescape-theme a:not(.cta-button):not(.logo a):not(nav a)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cosmic-cyan);
+  box-shadow: 0 0 5px var(--cosmic-cyan);
+  transition: width 0.3s ease;
+}
+
+.futurescape-theme a:not(.cta-button):not(.logo a):not(nav a):hover {
+  color: var(--cosmic-light-blue);
+  text-shadow: 0 0 8px rgba(0, 232, 252, 0.5);
+}
+
+.futurescape-theme a:not(.cta-button):not(.logo a):not(nav a):hover::after {
+  width: 100%;
+}
+
+/* Enhanced Header Styling */
+.futurescape-theme header {
+  background: rgba(26, 26, 64, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 232, 252, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.futurescape-theme .logo a {
+  color: var(--cosmic-white);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.futurescape-theme nav a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+  color: var(--cosmic-white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.futurescape-theme nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--cosmic-cyan);
+  transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 8px var(--cosmic-cyan);
+}
+
+.futurescape-theme nav a:hover,
+.futurescape-theme nav a.active {
+  color: var(--cosmic-cyan);
+}
+
+.futurescape-theme nav a:hover::before,
+.futurescape-theme nav a.active::before {
+  width: 80%;
+  left: 10%;
+}
+
+/* Enhanced Hero Section Styling */
+.futurescape-theme .hero,
+.futurescape-theme .service-hero {
+  background: linear-gradient(135deg, var(--cosmic-dark), var(--cosmic-darker));
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.futurescape-theme .hero-visualization {
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+/* Enhanced Framework Cards Styling */
+.futurescape-theme .framework-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: rgba(26, 26, 64, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 232, 252, 0.15);
+  overflow: hidden;
+}
+
+.futurescape-theme .framework-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(0, 232, 252, 0.3);
+  border-color: rgba(0, 232, 252, 0.3);
+}
+
+.futurescape-theme .card-icon {
+  position: relative;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(0, 232, 252, 0.5));
+}
+
+.futurescape-theme .card-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(0, 232, 252, 0.2), transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.futurescape-theme .card-title {
+  color: var(--cosmic-cyan);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.futurescape-theme .framework-card:hover .card-title {
+  color: var(--cosmic-light-blue);
+  text-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+/* Enhanced Benefits Styling */
+.futurescape-theme .benefit {
+  background: rgba(26, 26, 64, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(157, 78, 221, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.futurescape-theme .benefit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(157, 78, 221, 0.3);
+  border-color: rgba(157, 78, 221, 0.3);
+}
+
+.futurescape-theme .benefit-icon {
+  filter: drop-shadow(0 0 8px rgba(157, 78, 221, 0.5));
+}
+
+/* Enhanced Case Studies Styling */
+.futurescape-theme .case-study {
+  background: rgba(26, 26, 64, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 232, 252, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.futurescape-theme .case-study:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(0, 232, 252, 0.3);
+  border-color: rgba(0, 232, 252, 0.3);
+}
+
+.futurescape-theme .case-study-image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.futurescape-theme .case-study:hover .case-study-image {
+  transform: scale(1.03);
+}
+
+/* Enhanced Testimonials Styling */
+.futurescape-theme .testimonial {
+  background: rgba(26, 26, 64, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(157, 78, 221, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.futurescape-theme .testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(157, 78, 221, 0.3);
+  border-color: rgba(157, 78, 221, 0.3);
+}
+
+.futurescape-theme .testimonial-content {
+  font-style: italic;
+  color: var(--cosmic-light-blue);
+}
+
+.futurescape-theme .testimonial-author {
+  color: var(--cosmic-white);
+  font-weight: 500;
+}
+
+.futurescape-theme .testimonial-author-image img {
+  border: 2px solid var(--cosmic-purple);
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+}
+
+/* Enhanced CTA Section Styling */
+.futurescape-theme .cta-section {
+  background: linear-gradient(135deg, var(--cosmic-dark), var(--cosmic-darker));
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme .cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 232, 252, 0.1), transparent 70%);
+  z-index: 0;
+}
+
+/* Enhanced Footer Styling */
+.futurescape-theme footer {
+  background: linear-gradient(to bottom, var(--cosmic-dark), var(--cosmic-darker));
+  border-top: 1px solid rgba(0, 232, 252, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 0);
+  background-size: 100px 100px, 120px 120px, 150px 150px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.futurescape-theme .footer-column h4 {
+  color: var(--cosmic-cyan);
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.futurescape-theme .footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.futurescape-theme .footer-column ul li {
+  margin-bottom: 0.75rem;
+}
+
+.futurescape-theme .footer-column a {
+  color: var(--cosmic-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.futurescape-theme .footer-column a:hover {
+  color: var(--cosmic-cyan);
+}
+
+.futurescape-theme .footer-bottom {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+}
+
+/* Enhanced Form Elements */
+.futurescape-theme input,
+.futurescape-theme textarea,
+.futurescape-theme select {
+  background: rgba(26, 26, 64, 0.7);
+  border: 1px solid rgba(0, 232, 252, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--cosmic-white);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.futurescape-theme input:focus,
+.futurescape-theme textarea:focus,
+.futurescape-theme select:focus {
+  border-color: var(--cosmic-cyan);
+  box-shadow: 0 0 10px rgba(0, 232, 252, 0.3);
+  outline: none;
+}
+
+.futurescape-theme input::placeholder,
+.futurescape-theme textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Enhanced Lists */
+.futurescape-theme ul:not(.footer-column ul),
+.futurescape-theme ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.futurescape-theme ul:not(.footer-column ul) li,
+.futurescape-theme ol li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.futurescape-theme ul:not(.footer-column ul) li::before {
+  content: '•';
+  color: var(--cosmic-cyan);
+  position: absolute;
+  left: -1.2rem;
+  top: 0;
+  font-size: 1.2em;
+}
+
+/* Enhanced Tables */
+.futurescape-theme table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  background: rgba(26, 26, 64, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.futurescape-theme th {
+  background: rgba(0, 232, 252, 0.1);
+  color: var(--cosmic-cyan);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 232, 252, 0.2);
+}
+
+.futurescape-theme td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 232, 252, 0.1);
+}
+
+.futurescape-theme tr:last-child td {
+  border-bottom: none;
+}
+
+.futurescape-theme tr:hover td {
+  background: rgba(0, 232, 252, 0.05);
+}
+
+/* Enhanced Code Blocks */
+.futurescape-theme pre,
+.futurescape-theme code {
+  background: rgba(26, 26, 64, 0.7);
+  border-radius: 8px;
+  padding: 0.2em 0.4em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: var(--cosmic-cyan);
+}
+
+.futurescape-theme pre {
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 232, 252, 0.1);
+}
+
+.futurescape-theme pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Enhanced Blockquotes */
+.futurescape-theme blockquote {
+  border-left: 3px solid var(--cosmic-cyan);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--cosmic-light-blue);
+}
+
+/* Enhanced Images */
+.futurescape-theme img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Enhanced Dividers */
+.futurescape-theme hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 232, 252, 0.3) 20%, 
+    rgba(0, 232, 252, 0.7) 50%, 
+    rgba(0, 232, 252, 0.3) 80%, 
+    transparent 100%);
+  margin: 3rem 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .futurescape-theme h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .futurescape-theme h2 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  
+  .futurescape-theme .cta-button,
+  .futurescape-theme button:not([class^="cookie"]) {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .futurescape-theme .hero,
+  .futurescape-theme .service-hero {
+    padding: 6rem 1rem 4rem;
+  }
+  
+  .futurescape-theme .framework-card,
+  .futurescape-theme .benefit,
+  .futurescape-theme .case-study,
+  .futurescape-theme .testimonial {
+    padding: 1.5rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .futurescape-theme {
+    /* Still keep dark theme for Futurescape design */
+    color-scheme: dark;
+  }
+}

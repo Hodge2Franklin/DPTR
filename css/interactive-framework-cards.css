@@ -1,0 +1,536 @@
+.framework-cards {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.framework-cards h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.framework-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 15px;
+    flex: 1 1 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.framework-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.framework-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    z-index: 2;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(106, 17, 203, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.framework-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.framework-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.framework-card:hover h3 {
+    color: #6a11cb;
+}
+
+.framework-card h3.pulsing {
+    animation: pulse-text 1.5s infinite ease-in-out;
+}
+
+.framework-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.framework-card .learn-more {
+    display: inline-block;
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.framework-card .learn-more::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #6a11cb;
+    transition: width 0.3s ease;
+}
+
+.framework-card:hover .learn-more::after {
+    width: 100%;
+}
+
+.framework-card.active {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.framework-card .card-content {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.framework-card.expanded .card-content {
+    height: auto;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.card-progress {
+    height: 4px;
+    width: 0;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+.framework-card.active .card-progress {
+    width: 100%;
+}
+
+/* Interactive elements */
+.card-interactive-element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(106, 17, 203, 0.2);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 1s ease;
+}
+
+.framework-card:hover .card-interactive-element {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+/* Connection lines between cards */
+.connection-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.connections-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.connection-path {
+    opacity: 0.5;
+    transition: stroke-dasharray 0.5s ease, stroke-width 0.5s ease, opacity 0.5s ease;
+}
+
+/* Interactive visualizations within cards */
+.card-interactive-visualization {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    transition: height 0.5s ease;
+    opacity: 0;
+}
+
+.card-interactive-visualization.active {
+    height: 150px;
+    opacity: 1;
+}
+
+/* Data unification visualization */
+.data-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #6a11cb;
+    transition: transform 0.5s ease;
+}
+
+.central-node {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.connection-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    transform-origin: left center;
+    animation: grow 1.5s forwards;
+}
+
+/* Humanize insights visualization */
+.insight-node {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #6a11cb;
+    transform: translate(-50%, -50%);
+}
+
+.human-node {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.connection-line.vertical {
+    width: 2px;
+    height: 0;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    animation: grow-vertical 1.5s forwards;
+}
+
+.insight-ray {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #6a11cb 0%, transparent 100%);
+    top: 30%;
+    left: 50%;
+    transform-origin: left center;
+    opacity: 0;
+    animation: fade-in 0.5s forwards 0.5s;
+}
+
+/* Express vision visualization */
+.vision-center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vision-ring {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #6a11cb, #2575fc);
+    border-image-slice: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 2s infinite ease-in-out;
+}
+
+.vision-pulse {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(106, 17, 203, 0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: pulse-out 2s infinite;
+}
+
+.vision-ray {
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #6a11cb 0%, transparent 100%);
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    opacity: 0;
+    animation: fade-in 0.5s forwards 0.5s;
+}
+
+/* Storytelling controller */
+.storytelling-controller {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.start-journey {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-journey:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+}
+
+.start-journey:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.journey-progress {
+    height: 6px;
+    background-color: rgba(106, 17, 203, 0.1);
+    border-radius: 3px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.journey-progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Journey completion message */
+.journey-completion-message {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.journey-completion-message.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.completion-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.learn-more-btn {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+}
+
+/* Card states for storytelling sequence */
+.framework-card[data-state="inactive"] {
+    opacity: 0.7;
+}
+
+.framework-card[data-state="active"] {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.framework-card[data-state="completed"] {
+    position: relative;
+}
+
+.framework-card[data-state="completed"]::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #6a11cb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* Accessibility - focus styles */
+.framework-card:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.5), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.framework-card.focused {
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes pulse-ring {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes pulse-out {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes grow {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+@keyframes grow-vertical {
+    0% { height: 0; }
+    100% { height: 40%; }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes pulse-text {
+    0% { color: #333; }
+    50% { color: #6a11cb; }
+    100% { color: #333; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .cards-container {
+        justify-content: center;
+    }
+    
+    .framework-card {
+        flex: 0 0 calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .framework-card {
+        flex: 0 0 100%;
+        margin: 15px 0;
+    }
+    
+    .card-interactive-visualization.active {
+        height: 120px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .framework-card:hover {
+        transform: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .framework-card.touch-active {
+        transform: scale(0.98);
+        transition: transform 0.2s ease;
+    }
+}

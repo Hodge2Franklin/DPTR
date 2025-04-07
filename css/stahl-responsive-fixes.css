@@ -1,0 +1,272 @@
+/* Stahl-inspired responsive design fixes */
+
+/* Mobile-first adjustments */
+@media (max-width: 576px) {
+  /* Typography adjustments for small screens */
+  h1, .hero h1 {
+    font-size: var(--stahl-size-2xl);
+    letter-spacing: var(--stahl-spacing-wide);
+  }
+  
+  h2, .section-heading h2 {
+    font-size: var(--stahl-size-xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--stahl-size-base);
+  }
+  
+  /* Layout adjustments */
+  .container {
+    padding-left: var(--stahl-space-4);
+    padding-right: var(--stahl-space-4);
+  }
+  
+  /* Navigation adjustments */
+  nav ul {
+    gap: var(--stahl-space-3);
+  }
+  
+  nav a {
+    padding: var(--stahl-space-2) var(--stahl-space-2);
+    font-size: var(--stahl-size-sm);
+  }
+  
+  /* Card adjustments */
+  .card, .stahl-card {
+    padding: var(--stahl-space-4);
+  }
+  
+  /* Button adjustments */
+  .button, .stahl-button {
+    padding: var(--stahl-space-3) var(--stahl-space-4);
+    font-size: var(--stahl-size-xs);
+  }
+  
+  /* Hero section adjustments */
+  .hero {
+    padding-top: var(--stahl-space-12);
+    padding-bottom: var(--stahl-space-12);
+    min-height: auto;
+  }
+  
+  /* Framework cards adjustments */
+  .framework-card-icon {
+    height: 60px;
+  }
+  
+  /* Footer adjustments */
+  .footer-grid {
+    gap: var(--stahl-space-6);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 577px) and (max-width: 992px) {
+  /* Typography adjustments for medium screens */
+  h1, .hero h1 {
+    font-size: var(--stahl-size-4xl);
+  }
+  
+  h2, .section-heading h2 {
+    font-size: var(--stahl-size-2xl);
+  }
+  
+  /* Layout adjustments */
+  .two-column {
+    gap: var(--stahl-space-8);
+  }
+  
+  /* Hero section adjustments */
+  .hero {
+    min-height: 60vh;
+  }
+}
+
+/* Landscape phone adjustments */
+@media (max-width: 767px) and (orientation: landscape) {
+  /* Hero section adjustments for landscape */
+  .hero {
+    padding-top: var(--stahl-space-8);
+    padding-bottom: var(--stahl-space-8);
+    min-height: auto;
+  }
+  
+  /* Reduce vertical spacing */
+  section {
+    padding-top: var(--stahl-space-8);
+    padding-bottom: var(--stahl-space-8);
+  }
+  
+  .section-heading {
+    margin-bottom: var(--stahl-space-6);
+  }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  /* Increase tap target sizes */
+  button, 
+  .button, 
+  .stahl-button,
+  nav a,
+  .card-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Add more spacing between interactive elements */
+  nav ul {
+    gap: var(--stahl-space-4);
+  }
+  
+  /* Ensure form elements are easily tappable */
+  input, 
+  select, 
+  textarea {
+    min-height: 44px;
+    font-size: var(--stahl-size-base);
+  }
+}
+
+/* High pixel density screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Ensure SVGs are crisp */
+  svg {
+    shape-rendering: geometricPrecision;
+  }
+  
+  /* Adjust border widths for retina displays */
+  .stahl-card,
+  .stahl-button,
+  .framework-card {
+    border-width: 1px;
+  }
+}
+
+/* Foldable devices and unusual aspect ratios */
+@media (max-aspect-ratio: 1/1) {
+  /* Adjust layout for tall screens */
+  .two-column,
+  .two-column-reverse {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-3, 
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-aspect-ratio: 2/1) {
+  /* Adjust layout for very wide screens */
+  .hero {
+    min-height: 50vh;
+  }
+  
+  .content-wide {
+    max-width: 1400px;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1400px) {
+  :root {
+    /* Scale up spacing for large screens */
+    --stahl-section-padding-top: var(--stahl-space-32);
+    --stahl-section-padding-bottom: var(--stahl-space-32);
+  }
+  
+  /* Increase content max-width */
+  .content-wide {
+    max-width: 1600px;
+  }
+  
+  /* Scale up typography */
+  h1, .hero h1 {
+    font-size: var(--stahl-size-7xl);
+  }
+  
+  h2, .section-heading h2 {
+    font-size: var(--stahl-size-5xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--stahl-size-2xl);
+  }
+  
+  /* Increase grid columns for large screens */
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  /* Already dark theme, but ensure contrast */
+  .stahl-text-muted {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Increase glow effects in dark mode */
+  .stahl-neon-blue {
+    filter: drop-shadow(0 0 5px var(--stahl-neon-blue));
+  }
+  
+  .stahl-neon-pink {
+    filter: drop-shadow(0 0 5px var(--stahl-neon-pink));
+  }
+  
+  .stahl-neon-green {
+    filter: drop-shadow(0 0 5px var(--stahl-neon-green));
+  }
+}
+
+/* Light mode adjustments (if user overrides to light mode) */
+@media (prefers-color-scheme: light) {
+  /* Maintain dark theme even in light mode preference */
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: var(--stahl-bg-dark);
+    color: var(--stahl-text-light);
+  }
+}
+
+/* Reduced data usage */
+@media (prefers-reduced-data: reduce) {
+  /* Disable animations and effects that consume data */
+  .stahl-background-animation,
+  .stahl-data-flow,
+  .stahl-grid-scan {
+    display: none;
+  }
+  
+  /* Use simpler backgrounds */
+  .stahl-bg-pattern {
+    background-image: none;
+  }
+}
+
+/* Ensure keyboard navigation works well */
+:focus-visible {
+  outline: 2px solid var(--stahl-neon-blue);
+  outline-offset: 2px;
+}
+
+/* Ensure content is accessible when zoomed */
+@media (max-width: 992px) and (min-resolution: 1.5dppx) {
+  html {
+    /* Prevent horizontal scrolling when zoomed */
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure text remains readable */
+  p, li, .card-content {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+}

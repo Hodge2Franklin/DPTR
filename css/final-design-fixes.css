@@ -1,0 +1,212 @@
+/* Additional CSS fixes to match reference site more closely */
+
+/* Body background and decorative elements */
+body {
+    background: linear-gradient(135deg, rgba(240, 240, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Hero section enhancements */
+.hero {
+    background: linear-gradient(135deg, rgba(240, 240, 255, 0.8) 0%, rgba(255, 255, 255, 1) 100%);
+    padding: 80px 0 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(106, 17, 203, 0.08) 0%, transparent 60%);
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: #6a11cb;
+    border-radius: 2px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 90%;
+    color: #555;
+}
+
+/* Button styling to match reference */
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(106, 17, 203, 0.4);
+    color: white;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%);
+    transition: all 0.6s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Navigation styling to match reference */
+nav ul li a {
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+nav ul li:nth-child(1) a {
+    background-color: #e8efff;
+    color: #4169e1;
+    border: 1px solid #c7d7ff;
+}
+
+nav ul li:nth-child(2) a {
+    background-color: #fff5e6;
+    color: #ff9800;
+    border: 1px solid #ffe0b2;
+}
+
+nav ul li:nth-child(3) a {
+    background-color: #f9e6f9;
+    color: #9c27b0;
+    border: 1px solid #e1bee7;
+}
+
+nav ul li:nth-child(4) a {
+    background-color: #e0f7fa;
+    color: #00bcd4;
+    border: 1px solid #b2ebf2;
+}
+
+nav ul li:nth-child(5) a {
+    background-color: #ffe6ec;
+    color: #e91e63;
+    border: 1px solid #f8bbd0;
+}
+
+nav ul li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add decorative dots */
+.decorative-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Button container for multiple buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Secondary button style */
+.cta-button.secondary {
+    background: linear-gradient(90deg, #ff9966 0%, #ff5e62 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 94, 98, 0.3);
+}
+
+.cta-button.secondary:hover {
+    box-shadow: 0 12px 25px rgba(255, 94, 98, 0.4);
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 50px;
+    }
+    
+    .hero-content h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .button-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

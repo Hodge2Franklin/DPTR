@@ -1,0 +1,322 @@
+/* Advanced Cosmic Animations and Effects */
+
+/* Parallax Star Field */
+.futurescape-theme .parallax-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.futurescape-theme .star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+.futurescape-theme .star-layer-1 {
+  background-image: 
+    radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 0);
+  background-size: 100px 100px;
+  animation: parallaxSlow 150s infinite linear;
+}
+
+.futurescape-theme .star-layer-2 {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 10% 10%, rgba(0, 232, 252, 0.2) 1px, transparent 0),
+    radial-gradient(1.5px 1.5px at 30% 70%, rgba(0, 232, 252, 0.2) 1px, transparent 0),
+    radial-gradient(1.5px 1.5px at 70% 30%, rgba(0, 232, 252, 0.2) 1px, transparent 0);
+  background-size: 150px 150px;
+  animation: parallaxMedium 100s infinite linear;
+}
+
+.futurescape-theme .star-layer-3 {
+  background-image: 
+    radial-gradient(2px 2px at 20% 20%, rgba(157, 78, 221, 0.2) 1px, transparent 0),
+    radial-gradient(2px 2px at 40% 60%, rgba(157, 78, 221, 0.2) 1px, transparent 0),
+    radial-gradient(2px 2px at 60% 40%, rgba(157, 78, 221, 0.2) 1px, transparent 0);
+  background-size: 200px 200px;
+  animation: parallaxFast 50s infinite linear;
+}
+
+/* Nebula Pulse Effect */
+.futurescape-theme .nebula-pulse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.futurescape-theme .nebula-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.futurescape-theme .nebula-layer-1 {
+  background: radial-gradient(circle at 30% 30%, rgba(0, 232, 252, 0.2), transparent 60%);
+  animation: nebulaPulse 15s infinite ease-in-out;
+}
+
+.futurescape-theme .nebula-layer-2 {
+  background: radial-gradient(circle at 70% 70%, rgba(157, 78, 221, 0.2), transparent 60%);
+  animation: nebulaPulse 20s infinite ease-in-out reverse;
+}
+
+.futurescape-theme .nebula-layer-3 {
+  background: radial-gradient(circle at 50% 20%, rgba(255, 75, 43, 0.15), transparent 70%);
+  animation: nebulaPulse 25s infinite ease-in-out;
+}
+
+/* Cosmic Glow Effects */
+.futurescape-theme .cosmic-glow {
+  position: relative;
+}
+
+.futurescape-theme .cosmic-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(0, 232, 252, 0.5);
+  opacity: 0;
+  animation: glowPulse 4s infinite ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Constellation Connection Lines */
+.futurescape-theme .constellation-line {
+  stroke: rgba(0, 232, 252, 0.5);
+  stroke-width: 1;
+  stroke-dasharray: 5;
+  stroke-dashoffset: 10;
+  animation: dashFlow 3s infinite linear;
+}
+
+/* Orbital Rotation Effects */
+.futurescape-theme .orbital-element {
+  transform-origin: center;
+  animation: orbit 20s infinite linear;
+}
+
+.futurescape-theme .orbital-reverse {
+  animation-direction: reverse;
+}
+
+.futurescape-theme .orbital-slow {
+  animation-duration: 30s;
+}
+
+.futurescape-theme .orbital-fast {
+  animation-duration: 15s;
+}
+
+/* Cosmic Particle System */
+.futurescape-theme .particle-system {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.futurescape-theme .cosmic-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00E8FC;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* Gradient Text Animation */
+.futurescape-theme .gradient-text-animated {
+  background: linear-gradient(90deg, #00E8FC, #9D4EDD, #FF4B2B, #00E8FC);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradientFlow 8s infinite linear;
+}
+
+/* Scroll-Triggered Animations */
+.futurescape-theme .fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.futurescape-theme .fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.futurescape-theme .stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.futurescape-theme .stagger-fade-in.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+.futurescape-theme .stagger-fade-in.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cosmic Hover Effects */
+.futurescape-theme .cosmic-hover {
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.futurescape-theme .cosmic-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 232, 252, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.futurescape-theme .cosmic-hover:hover::before {
+  opacity: 1;
+}
+
+.futurescape-theme .cosmic-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 232, 252, 0.3);
+}
+
+/* Cosmic Link Underline Effect */
+.futurescape-theme .cosmic-link {
+  position: relative;
+  text-decoration: none;
+  color: #00E8FC;
+}
+
+.futurescape-theme .cosmic-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #00E8FC;
+  box-shadow: 0 0 5px #00E8FC;
+  transition: width 0.3s ease;
+}
+
+.futurescape-theme .cosmic-link:hover::after {
+  width: 100%;
+}
+
+/* Animation Keyframes */
+@keyframes parallaxSlow {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+@keyframes parallaxMedium {
+  from { background-position: 0 0; }
+  to { background-position: 1500px 1000px; }
+}
+
+@keyframes parallaxFast {
+  from { background-position: 0 0; }
+  to { background-position: 2000px 1000px; }
+}
+
+@keyframes nebulaPulse {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .futurescape-theme .star-layer-1 {
+    background-size: 50px 50px;
+  }
+  
+  .futurescape-theme .star-layer-2 {
+    background-size: 75px 75px;
+  }
+  
+  .futurescape-theme .star-layer-3 {
+    background-size: 100px 100px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme .parallax-stars,
+  .futurescape-theme .nebula-pulse,
+  .futurescape-theme .cosmic-glow::after,
+  .futurescape-theme .constellation-line,
+  .futurescape-theme .orbital-element,
+  .futurescape-theme .gradient-text-animated {
+    animation: none !important;
+  }
+  
+  .futurescape-theme .fade-in-up,
+  .futurescape-theme .stagger-fade-in > * {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

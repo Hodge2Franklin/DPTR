@@ -1,0 +1,256 @@
+/* Stahl-inspired accessibility enhancements */
+
+/* Focus styles */
+:focus {
+  outline: 2px solid var(--stahl-neon-blue);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--stahl-neon-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 232, 252, 0.3);
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--stahl-bg-darker);
+  color: var(--stahl-neon-blue);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Improved contrast */
+.text-muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stahl-button {
+  color: white;
+}
+
+/* ARIA attributes */
+[aria-hidden="true"] {
+  display: none;
+}
+
+[aria-expanded="false"] + .stahl-accordion-content {
+  display: none;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Keyboard navigation */
+.keyboard-user *:focus {
+  outline: 2px solid var(--stahl-neon-blue);
+  outline-offset: 2px;
+}
+
+/* Ensure sufficient color contrast */
+.stahl-neon-blue {
+  color: #00E8FC;
+}
+
+.stahl-neon-pink {
+  color: #FF00FF;
+}
+
+.stahl-neon-green {
+  color: #00FF00;
+}
+
+/* Ensure text on colored backgrounds has sufficient contrast */
+.stahl-bg-card {
+  color: white;
+}
+
+/* Ensure form elements are accessible */
+input, 
+select, 
+textarea, 
+button {
+  font-size: 16px; /* Prevent zoom on iOS */
+}
+
+label {
+  display: block;
+  margin-bottom: var(--stahl-space-2);
+}
+
+/* Ensure proper heading hierarchy */
+section h2 {
+  margin-top: 0;
+}
+
+/* Ensure proper link text */
+a[aria-label] {
+  position: relative;
+}
+
+/* Ensure proper button text */
+button[aria-label] {
+  position: relative;
+}
+
+/* Ensure proper image alt text */
+img:not([alt]) {
+  outline: 2px solid red;
+}
+
+/* Ensure proper form labels */
+input:not([id]), 
+select:not([id]), 
+textarea:not([id]) {
+  outline: 2px solid red;
+}
+
+label:not([for]) {
+  outline: 2px solid red;
+}
+
+/* Ensure proper ARIA roles */
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="tab"] {
+  cursor: pointer;
+}
+
+/* Ensure proper tab index */
+[tabindex]:not([tabindex="0"]):not([tabindex="-1"]) {
+  outline: 2px solid red;
+}
+
+/* JavaScript to detect keyboard users */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Tab') {
+    document.body.classList.add('keyboard-user');
+  }
+});
+
+document.addEventListener('mousedown', function() {
+  document.body.classList.remove('keyboard-user');
+});
+
+/* Add skip to content link */
+document.addEventListener('DOMContentLoaded', function() {
+  const skipLink = document.createElement('a');
+  skipLink.href = '#main';
+  skipLink.className = 'skip-to-content';
+  skipLink.textContent = 'Skip to content';
+  document.body.prepend(skipLink);
+  
+  // Add id to main content if it doesn't exist
+  const main = document.querySelector('main') || document.querySelector('.main-content');
+  if (main && !main.id) {
+    main.id = 'main';
+  }
+  
+  // Add appropriate ARIA attributes
+  const accordionHeaders = document.querySelectorAll('.stahl-accordion-header');
+  accordionHeaders.forEach(header => {
+    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    
+    header.addEventListener('click', function() {
+      const expanded = header.getAttribute('aria-expanded') === 'true';
+      header.setAttribute('aria-expanded', !expanded);
+    });
+    
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        header.click();
+      }
+    });
+  });
+  
+  // Add appropriate ARIA attributes to tabs
+  const tabHeaders = document.querySelectorAll('.stahl-tab-header');
+  tabHeaders.forEach((header, index) => {
+    const id = `tab-${index}`;
+    const panelId = `panel-${index}`;
+    
+    header.setAttribute('role', 'tab');
+    header.setAttribute('id', id);
+    header.setAttribute('aria-controls', panelId);
+    header.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    header.setAttribute('tabindex', index === 0 ? '0' : '-1');
+    
+    const panel = document.querySelectorAll('.stahl-tab-content')[index];
+    if (panel) {
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('id', panelId);
+      panel.setAttribute('aria-labelledby', id);
+      panel.setAttribute('tabindex', '0');
+      
+      if (index !== 0) {
+        panel.setAttribute('hidden', '');
+      }
+    }
+    
+    header.addEventListener('click', function() {
+      // Update aria-selected
+      tabHeaders.forEach(h => {
+        h.setAttribute('aria-selected', 'false');
+        h.setAttribute('tabindex', '-1');
+      });
+      header.setAttribute('aria-selected', 'true');
+      header.setAttribute('tabindex', '0');
+      
+      // Show/hide panels
+      const panels = document.querySelectorAll('.stahl-tab-content');
+      panels.forEach(p => {
+        p.setAttribute('hidden', '');
+      });
+      
+      const panel = document.querySelectorAll('.stahl-tab-content')[index];
+      if (panel) {
+        panel.removeAttribute('hidden');
+      }
+    });
+    
+    // Keyboard navigation for tabs
+    header.addEventListener('keydown', function(e) {
+      let newIndex;
+      
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        newIndex = index === tabHeaders.length - 1 ? 0 : index + 1;
+        e.preventDefault();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        newIndex = index === 0 ? tabHeaders.length - 1 : index - 1;
+        e.preventDefault();
+      } else {
+        return;
+      }
+      
+      tabHeaders[newIndex].click();
+      tabHeaders[newIndex].focus();
+    });
+  });
+});

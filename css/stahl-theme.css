@@ -1,0 +1,143 @@
+/* Main Stahl theme stylesheet that imports all components */
+
+/* Import base styles */
+@import url('stahl-theme/stahl-colors.css');
+@import url('stahl-theme/stahl-typography.css');
+@import url('stahl-theme/stahl-layout.css');
+
+/* Import component styles */
+@import url('stahl-theme/stahl-components.css');
+@import url('stahl-theme/stahl-layout-refinements.css');
+@import url('stahl-theme/stahl-visual-hierarchy.css');
+@import url('stahl-theme/stahl-icons.css');
+
+/* Import interactive elements */
+@import url('stahl-theme/stahl-interactive.css');
+
+/* Import compatibility and responsive fixes */
+@import url('stahl-theme/stahl-browser-compatibility.css');
+@import url('stahl-theme/stahl-responsive-fixes.css');
+@import url('stahl-theme/stahl-accessibility.css');
+
+/* Apply Stahl theme to body */
+body {
+  background-color: var(--stahl-bg-dark);
+  color: var(--stahl-text-light);
+  font-family: var(--stahl-font-body);
+  font-size: var(--stahl-size-base);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for consistent width */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--stahl-space-4);
+}
+
+/* Main content area */
+main {
+  min-height: 70vh;
+}
+
+/* Apply Stahl theme to all pages */
+.stahl-theme {
+  /* Base theme applied via body */
+}
+
+/* Framework-specific styling */
+.data-unification {
+  --stahl-accent-color: var(--stahl-neon-blue);
+}
+
+.humanize-insights {
+  --stahl-accent-color: var(--stahl-neon-pink);
+}
+
+.express-vision {
+  --stahl-accent-color: var(--stahl-neon-green);
+}
+
+/* Helper classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: var(--stahl-space-1);
+}
+
+.mb-2 {
+  margin-bottom: var(--stahl-space-2);
+}
+
+.mb-4 {
+  margin-bottom: var(--stahl-space-4);
+}
+
+.mb-8 {
+  margin-bottom: var(--stahl-space-8);
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: var(--stahl-space-1);
+}
+
+.mt-2 {
+  margin-top: var(--stahl-space-2);
+}
+
+.mt-4 {
+  margin-top: var(--stahl-space-4);
+}
+
+.mt-8 {
+  margin-top: var(--stahl-space-8);
+}
+
+/* Utility classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}

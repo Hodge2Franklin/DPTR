@@ -4,167 +4,350 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DPTR | Digital & AI Transformation</title>
-    <style>
-        /* Basic styling for consistency */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0f172a;
-            color: #fff;
-        }
-        
-        a {
-            color: #a78bfa;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <!-- DPTR.com.au Design Implementation -->
+    <link rel="stylesheet" href="css/dptr-theme.css">
+    <link rel="stylesheet" href="css/dptr-typography.css">
+    <link rel="stylesheet" href="css/dptr-layout.css">
+    <link rel="stylesheet" href="css/dptr-navigation.css">
+    <link rel="stylesheet" href="css/dptr-components.css">
+    <link rel="stylesheet" href="css/dptr-responsive.css">
+    <link rel="stylesheet" href="css/dptr-animations.css">
+    <link rel="stylesheet" href="css/dptr-compatibility.css">
 </head>
 <body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    
     <header>
-        <a href="/"><img src="/assets/images/dptr_logo.svg" alt="DPTR Logo"/></a>
-        <nav>
-            <a href="/capabilities">Capabilities</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/technologies">Technologies</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-            <a href="/contact">Get started</a>
-        </nav>
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <img src="/assets/images/dptr_logo.svg" alt="DPTR Logo"/>
+            </a>
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="/capabilities.html" class="nav-link">Capabilities</a></li>
+                    <li class="nav-item"><a href="/case-studies.html" class="nav-link">Case Studies</a></li>
+                    <li class="nav-item"><a href="/technologies.html" class="nav-link">Technologies</a></li>
+                    <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="/contact.html" class="nav-cta-button">Get started</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="hero">
-            <h1>Redefining What's Possible Through Human-Centered AI</h1>
-            <p>DPTR transforms obstacles into opportunities by building data-driven ecosystems that create measurable competitive advantage.</p>
-            <div class="cta-buttons">
-                <a href="/capabilities">Explore our capabilities</a>
-                <a href="/contact">Book a discovery call</a>
-            </div>
-        </section>
-
-        <section id="limitless-framework">
-            <h2>The LIMITLESS Framework</h2>
-            <p>Our proprietary methodology for solving complex problems and creating measurable competitive advantage</p>
-            
-            <div class="framework-items">
-                <div class="framework-item">
-                    <h3>L</h3>
-                    <h4>Leverage Insights from Multiple Disciplines</h4>
-                    <p>We initiate projects with a broad, transdisciplinary gathering of insights, conducting workshops and brainstorming sessions involving experts from various fields to define problems comprehensively.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>I</h3>
-                    <h4>Iterate with Agile and Lean Methods</h4>
-                    <p>We employ agile development cycles for rapid prototyping, testing, and refinement, focusing on building minimal viable products (MVPs) to test ideas and gather user feedback quickly.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>M</h3>
-                    <h4>Model Solutions Using Computational Design</h4>
-                    <p>We use data analytics, AI, and machine learning to generate innovative solutions and model outcomes, integrating digital twin technologies to simulate and test solutions in virtual environments.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>I</h3>
-                    <h4>Integrate Systemic Thinking</h4>
-                    <p>We continuously evaluate how solutions fit within larger systems and societal contexts, using systemic feedback to refine solutions, ensuring they are robust and adaptable to complex environments.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>T</h3>
-                    <h4>Technology-Driven Ideation</h4>
-                    <p>We harness the latest in technology to enhance creative processes and operational efficiency, continuously updating our toolset to include state-of-the-art software and hardware supporting design and development.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>L</h3>
-                    <h4>Leadership in a Collaborative Culture</h4>
-                    <p>We promote an adaptive leadership style where responsibilities are shared based on expertise and project needs, fostering a culture of participation, openness, and continuous learning.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>E</h3>
-                    <h4>Ethical and Sustainable Design</h4>
-                    <p>We prioritize sustainability and ethical considerations in all phases of design and development, regularly reviewing and updating practices to adhere to the highest standards of social responsibility.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>S</h3>
-                    <h4>Structured Feedback and Improvement</h4>
-                    <p>We implement structured feedback loops involving all stakeholders, including end-users, to gather insights and identify areas for improvement, encouraging an environment where feedback is seen as a tool for growth and innovation.</p>
-                </div>
-                
-                <div class="framework-item">
-                    <h3>S</h3>
-                    <h4>Scalability and Flexibility</h4>
-                    <p>We design processes and solutions with scalability in mind, allowing for easy adaptation as needs evolve, maintaining flexibility in methodologies, allowing the team to pivot or adapt strategies based on real-world testing and feedback.</p>
+    <main id="main">
+        <section id="hero" class="hero bg-light">
+            <div class="container">
+                <div class="hero-content animate-slide-up">
+                    <h1>Redefining What's Possible Through Human-Centered AI</h1>
+                    <p class="lead">DPTR transforms obstacles into opportunities by building data-driven ecosystems that create measurable competitive advantage.</p>
+                    <div class="hero-actions">
+                        <a href="/capabilities.html" class="btn btn-primary btn-with-arrow">Explore our capabilities</a>
+                        <a href="/contact.html" class="btn btn-secondary btn-with-arrow">Book a discovery call</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="core-capabilities">
-            <h2>Our Three Core Capabilities</h2>
-            <p>What makes DPTR unique is the combination of these three capabilities - so vital to organisations and so rare to find in one partner</p>
-            
-            <div class="capabilities">
-                <div class="capability">
-                    <h3>Deep Organisational Understanding</h3>
-                    <p>We immerse ourselves in your world—quickly mapping challenges, workflows, competitive landscapes, and organisational culture. This systems-thinking mindset reveals possibilities beyond one-off technology projects.</p>
-                    <a href="/capabilities#deep-understanding">Learn more</a>
+        <section id="limitless-framework" class="section-dark">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2 class="section-title bg-text-effect">
+                        <span class="bg-text">LIMITLESS</span>
+                        The LIMITLESS Framework
+                    </h2>
+                    <p class="lead">Our proprietary methodology for solving complex problems and creating measurable competitive advantage</p>
                 </div>
                 
-                <div class="capability">
-                    <h3>Strategic Vision & Opportunity Identification</h3>
-                    <p>Once we understand your landscape, we pinpoint the breakthrough opportunities others miss. From AI-powered strategies to digital transformation roadmaps, we bridge the gap between ambition and execution.</p>
-                    <a href="/capabilities#strategic-vision">Learn more</a>
-                </div>
-                
-                <div class="capability">
-                    <h3>Agile, Embedded Delivery</h3>
-                    <p>Strategy alone doesn't drive impact—implementation does. That's why we embed with your teams to co-create solutions, transfer knowledge, and deliver results quickly. Our agile approach builds a future-proofed foundation.</p>
-                    <a href="/capabilities#agile-delivery">Learn more</a>
+                <div class="grid grid-3 grid-md-2 grid-sm-1">
+                    <div class="framework-item card reveal">
+                        <div class="card-header">
+                            <h3 class="display-text text-purple">L</h3>
+                            <h4 class="card-title">Leverage Insights from Multiple Disciplines</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We initiate projects with a broad, transdisciplinary gathering of insights, conducting workshops and brainstorming sessions involving experts from various fields to define problems comprehensively.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-100">
+                        <div class="card-header">
+                            <h3 class="display-text text-bright-blue">I</h3>
+                            <h4 class="card-title">Iterate with Agile and Lean Methods</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We employ agile development cycles for rapid prototyping, testing, and refinement, focusing on building minimal viable products (MVPs) to test ideas and gather user feedback quickly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-200">
+                        <div class="card-header">
+                            <h3 class="display-text text-green">M</h3>
+                            <h4 class="card-title">Model Solutions Using Computational Design</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We use data analytics, AI, and machine learning to generate innovative solutions and model outcomes, integrating digital twin technologies to simulate and test solutions in virtual environments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-300">
+                        <div class="card-header">
+                            <h3 class="display-text text-pink">I</h3>
+                            <h4 class="card-title">Integrate Systemic Thinking</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We continuously evaluate how solutions fit within larger systems and societal contexts, using systemic feedback to refine solutions, ensuring they are robust and adaptable to complex environments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-400">
+                        <div class="card-header">
+                            <h3 class="display-text text-purple">T</h3>
+                            <h4 class="card-title">Technology-Driven Ideation</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We harness the latest in technology to enhance creative processes and operational efficiency, continuously updating our toolset to include state-of-the-art software and hardware supporting design and development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-500">
+                        <div class="card-header">
+                            <h3 class="display-text text-bright-blue">L</h3>
+                            <h4 class="card-title">Leadership in a Collaborative Culture</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We promote an adaptive leadership style where responsibilities are shared based on expertise and project needs, fostering a culture of participation, openness, and continuous learning.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-600">
+                        <div class="card-header">
+                            <h3 class="display-text text-green">E</h3>
+                            <h4 class="card-title">Ethical and Sustainable Design</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We prioritize sustainability and ethical considerations in all phases of design and development, regularly reviewing and updating practices to adhere to the highest standards of social responsibility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-700">
+                        <div class="card-header">
+                            <h3 class="display-text text-pink">S</h3>
+                            <h4 class="card-title">Structured Feedback and Improvement</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We implement structured feedback loops involving all stakeholders, including end-users, to gather insights and identify areas for improvement, encouraging an environment where feedback is seen as a tool for growth and innovation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-item card reveal delay-800">
+                        <div class="card-header">
+                            <h3 class="display-text text-purple">S</h3>
+                            <h4 class="card-title">Scalability and Flexibility</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>We design processes and solutions with scalability in mind, allowing for easy adaptation as needs evolve, maintaining flexibility in methodologies, allowing the team to pivot or adapt strategies based on real-world testing and feedback.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="case-studies">
-            <h2>Our Impact Across Industries</h2>
-            <p>See how we've applied our capabilities to solve complex problems and create measurable competitive advantage</p>
-            
-            <div class="industry-cases">
-                <div class="case">
-                    <h3>Hospitality</h3>
-                    <h4>Channel Manager Competitive Analysis</h4>
-                    <p>We analyzed 17 different channel manager solutions to identify integration opportunities that competitors had missed, leading to 30% improved booking efficiency and 28% improved resource utilization.</p>
-                    <a href="/case-studies#hospitality">Read case study</a>
+        <section id="core-capabilities" class="section-light">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2 class="section-title bg-text-effect">
+                        <span class="bg-text">CAPABILITIES</span>
+                        Our Three Core Capabilities
+                    </h2>
+                    <p class="lead">What makes DPTR unique is the combination of these three capabilities - so vital to organisations and so rare to find in one partner</p>
                 </div>
                 
-                <div class="case">
-                    <h3>Education</h3>
-                    <h4>AITSL Teacher Support System</h4>
-                    <p>We created a real-time intelligence layer that enhances digital presence by listening to teacher interactions, processing that data, and responding with personalized support, reducing teacher isolation by 42%.</p>
-                    <a href="/case-studies#education">Read case study</a>
+                <div class="grid grid-3 grid-md-1">
+                    <div class="capability card reveal">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 12H4M12 3V4M20 12H21M12 20V21M5.6 5.6L6.3 6.3M18.4 5.6L17.7 6.3M17.7 17.7L18.4 18.4M6.3 17.7L5.6 18.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Deep Organisational Understanding</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>We immerse ourselves in your world—quickly mapping challenges, workflows, competitive landscapes, and organisational culture. This systems-thinking mindset reveals possibilities beyond one-off technology projects.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/capabilities.html#deep-understanding" class="card-link">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="capability card reveal delay-200">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 12H4M6 12H8M10 12H12M14 12H16M18 12H20M22 12H22.01M12 2V4M12 6V8M12 10V12M12 14V16M12 18V20M12 22V22.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Strategic Vision & Opportunity Identification</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Once we understand your landscape, we pinpoint the breakthrough opportunities others miss. From AI-powered strategies to digital transformation roadmaps, we bridge the gap between ambition and execution.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/capabilities.html#strategic-vision" class="card-link">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="capability card reveal delay-400">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15.5 9L10.5 14L8.5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="card-title">Agile, Embedded Delivery</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Strategy alone doesn't drive impact—implementation does. That's why we embed with your teams to co-create solutions, transfer knowledge, and deliver results quickly. Our agile approach builds a future-proofed foundation.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/capabilities.html#agile-delivery" class="card-link">Learn more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta">
-            <h2>Ready to transform your organisation?</h2>
-            <p>Book a discovery call to discuss how DPTR can help your organisation harness the power of AI, technology, and data to create new opportunities and secure long-term competitive advantage.</p>
-            <a href="/contact">Get started</a>
+        <section id="case-studies" class="section-dark">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2 class="section-title bg-text-effect">
+                        <span class="bg-text">IMPACT</span>
+                        Our Impact Across Industries
+                    </h2>
+                    <p class="lead">See how we've applied our capabilities to solve complex problems and create measurable competitive advantage</p>
+                </div>
+                
+                <div class="grid grid-2 grid-sm-1">
+                    <div class="case-study-card reveal">
+                        <div class="case-study-image">
+                            <img src="/assets/images/hospitality-case.jpg" alt="Hospitality case study" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1%20text%20%7B%20fill%3A%23a8d0e6%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1%22%3E%3Crect%20width%3D%22500%22%20height%3D%22200%22%20fill%3D%22%2376b5e3%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22170%22%20y%3D%22112%22%3EHospitality%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="badge badge-primary mb-sm">Hospitality</span>
+                            <h3 class="case-study-title">Channel Manager Competitive Analysis</h3>
+                            <p class="case-study-text">We analyzed 17 different channel manager solutions to identify integration opportunities that competitors had missed, leading to 30% improved booking efficiency and 28% improved resource utilization.</p>
+                            <a href="/case-studies.html#hospitality" class="case-study-link">Read case study</a>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study-card reveal delay-200">
+                        <div class="case-study-image">
+                            <img src="/assets/images/education-case.jpg" alt="Education case study" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_2%20text%20%7B%20fill%3A%23a8d0e6%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_2%22%3E%3Crect%20width%3D%22500%22%20height%3D%22200%22%20fill%3D%22%2376b5e3%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185%22%20y%3D%22112%22%3EEducation%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="badge badge-blue mb-sm">Education</span>
+                            <h3 class="case-study-title">AITSL Teacher Support System</h3>
+                            <p class="case-study-text">We created a real-time intelligence layer that enhances digital presence by listening to teacher interactions, processing that data, and responding with personalized support, reducing teacher isolation by 42%.</p>
+                            <a href="/case-studies.html#education" class="case-study-link">Read case study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="section-light">
+            <div class="container text-center">
+                <h2 class="mb-lg">Ready to transform your organisation?</h2>
+                <p class="lead mb-xl">Book a discovery call to discuss how DPTR can help your organisation harness the power of AI, technology, and data to create new opportunities and secure long-term competitive advantage.</p>
+                <a href="/contact.html" class="btn btn-primary btn-lg btn-with-arrow">Get started</a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>Made with Manus</p>
+    <footer class="section-dark">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>DPTR</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/capabilities.html">Capabilities</a></li>
+                        <li><a href="/case-studies.html">Case Studies</a></li>
+                        <li><a href="/technologies.html">Technologies</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 DPTR. All rights reserved.</p>
+                <p>Made with Manus</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Simple JavaScript for animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation toggle
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileNavToggle && mainNav) {
+                mobileNavToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                });
+            }
+            
+            // Scroll reveal animations
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            function checkReveal() {
+                for (let i = 0; i < revealElements.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = revealElements[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        revealElements[i].classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', checkReveal);
+            checkReveal(); // Check on page load
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            function checkScroll() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check on page load
+        });
+    </script>
 </body>
 </html>

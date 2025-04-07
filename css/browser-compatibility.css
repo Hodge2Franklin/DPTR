@@ -1,0 +1,216 @@
+.browser-compatibility-fixes {
+    /* Safari-specific fixes */
+    .safari & {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Firefox-specific fixes */
+    @-moz-document url-prefix() {
+        .framework-card {
+            backface-visibility: hidden; /* Prevents flickering during transitions */
+        }
+        
+        .card-icon svg {
+            transform: translateZ(0); /* Improves SVG rendering */
+        }
+    }
+    
+    /* Edge-specific fixes */
+    @supports (-ms-ime-align: auto) {
+        .framework-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .connection-lines svg {
+            position: relative; /* Fixes SVG positioning in Edge */
+        }
+    }
+    
+    /* IE11 fixes */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .framework-card {
+            transition: none; /* Simplify transitions for IE11 */
+        }
+        
+        .card-interactive-element {
+            display: none; /* Hide complex interactive elements in IE11 */
+        }
+        
+        .connection-lines {
+            display: none; /* Hide SVG connection lines in IE11 */
+        }
+        
+        /* Provide alternative styling for IE11 */
+        .framework-card:hover {
+            border: 2px solid #6a11cb;
+        }
+    }
+    
+    /* Mobile Safari fixes */
+    @supports (-webkit-touch-callout: none) {
+        .framework-card {
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+        }
+        
+        .card-icon {
+            will-change: transform; /* Optimize animations */
+        }
+    }
+    
+    /* Chrome-specific fixes */
+    @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+        .framework-card {
+            transform: translateZ(0); /* Force hardware acceleration */
+        }
+        
+        .card-progress {
+            will-change: width; /* Optimize progress bar animation */
+        }
+    }
+    
+    /* General cross-browser fixes */
+    .framework-card, 
+    .card-icon, 
+    .card-content,
+    .storytelling-element,
+    .connection-lines,
+    .journey-progress-bar {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+    
+    /* Fallbacks for browsers that don't support CSS Grid */
+    @supports not (display: grid) {
+        .service-benefits,
+        .process-steps,
+        .case-study-details {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .benefit,
+        .process-step {
+            flex: 1 1 30%;
+            margin: 10px;
+        }
+        
+        .case-study-challenge,
+        .case-study-solution,
+        .case-study-results,
+        .case-study-quote {
+            flex: 1 1 45%;
+            margin: 10px;
+        }
+    }
+    
+    /* Fallbacks for browsers that don't support CSS Variables */
+    @supports not (--custom: property) {
+        .framework-card::before {
+            background: #6a11cb; /* Solid color fallback */
+        }
+        
+        .card-progress {
+            background: #6a11cb; /* Solid color fallback */
+        }
+    }
+    
+    /* Fallbacks for browsers that don't support CSS animations */
+    @supports not (animation-name: test) {
+        .card-interactive-element,
+        .storytelling-element,
+        .data-point,
+        .central-node,
+        .connection-line,
+        .insight-ray,
+        .vision-ray {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .framework-card:hover {
+        transform: none !important;
+    }
+    
+    .card-icon {
+        transform: none !important;
+    }
+    
+    .card-progress {
+        transition: none !important;
+    }
+    
+    .connection-path {
+        animation: none !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .framework-card:hover {
+        transform: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .framework-card:active {
+        transform: scale(0.98);
+    }
+    
+    .card-interactive-element {
+        display: none; /* Hide hover-dependent elements on touch devices */
+    }
+    
+    .card-icon {
+        transform: none !important;
+    }
+    
+    /* Larger touch targets */
+    .learn-more,
+    .read-more,
+    .start-journey,
+    .btn {
+        padding: 12px 24px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .framework-card {
+        border: 1px solid CanvasText;
+    }
+    
+    .framework-card::before {
+        background: Highlight;
+    }
+    
+    .card-progress {
+        background: Highlight;
+    }
+    
+    .learn-more,
+    .read-more,
+    .start-journey,
+    .btn {
+        border: 1px solid CanvasText;
+    }
+    
+    .connection-path {
+        stroke: CanvasText;
+    }
+}
