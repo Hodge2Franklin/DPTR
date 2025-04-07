@@ -1,0 +1,399 @@
+/* DPTR.com.au Animations and Interactions Implementation
+ * This file implements the animations and interactions from DPTR.com.au while preserving
+ * all content and functionality of the original website.
+ */
+
+/* ===== Animation Variables ===== */
+:root {
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+  --transition-very-slow: 0.8s;
+  
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== Global Transitions ===== */
+a, button, input, select, textarea,
+.card, .btn, .nav-link, .dropdown-menu,
+.accordion-button, .tab-nav-link {
+  transition: all var(--transition-normal) var(--ease-out);
+}
+
+/* ===== Page Load Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal) var(--ease-out) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-normal) var(--ease-out) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--transition-normal) var(--ease-out) forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft var(--transition-normal) var(--ease-out) forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight var(--transition-normal) var(--ease-out) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp var(--transition-normal) var(--ease-bounce) forwards;
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-900 { animation-delay: 900ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ===== Scroll Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-normal) var(--ease-out),
+              transform var(--transition-normal) var(--ease-out);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity var(--transition-normal) var(--ease-out),
+              transform var(--transition-normal) var(--ease-out);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity var(--transition-normal) var(--ease-out),
+              transform var(--transition-normal) var(--ease-out);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--transition-normal) var(--ease-out),
+              transform var(--transition-normal) var(--ease-bounce);
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== Button Animations ===== */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-normal) var(--ease-out),
+              height var(--transition-normal) var(--ease-out);
+  z-index: 0;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-with-arrow::after {
+  transition: transform var(--transition-normal) var(--ease-out);
+}
+
+.btn-with-arrow:hover::after {
+  transform: translateX(4px);
+}
+
+/* ===== Card Hover Effects ===== */
+.card {
+  transition: transform var(--transition-normal) var(--ease-out),
+              box-shadow var(--transition-normal) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+  transition: transform var(--transition-slow) var(--ease-out);
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* ===== Navigation Animations ===== */
+.nav-link::after {
+  transition: width var(--transition-normal) var(--ease-out);
+}
+
+.dropdown-menu {
+  transition: opacity var(--transition-normal) var(--ease-out),
+              visibility var(--transition-normal) var(--ease-out),
+              transform var(--transition-normal) var(--ease-out);
+}
+
+.mobile-nav-toggle span {
+  transition: transform var(--transition-normal) var(--ease-out),
+              opacity var(--transition-normal) var(--ease-out);
+}
+
+/* ===== Drag to Explore Animation ===== */
+@keyframes dragPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes dragMove {
+  0% { left: 0; }
+  50% { left: calc(100% - 20px); }
+  100% { left: 0; }
+}
+
+.drag-to-explore {
+  position: relative;
+  margin: 4rem 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.drag-path {
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.drag-handle {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--purple);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: dragMove 8s var(--ease-in-out) infinite,
+             dragPulse 2s var(--ease-in-out) infinite;
+}
+
+.drag-dots {
+  position: absolute;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.drag-dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition: background-color var(--transition-normal) var(--ease-out);
+}
+
+.drag-dot.active {
+  background: var(--purple);
+}
+
+.drag-label {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn var(--transition-normal) var(--ease-out) forwards;
+}
+
+/* ===== Gradient Animations ===== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, var(--light-blue-start), var(--light-blue-end), var(--purple), var(--bright-blue));
+  background-size: 300% 300%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* ===== Stats Counter Animation ===== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+  animation: countUp var(--transition-slow) var(--ease-out) forwards;
+}
+
+/* ===== Form Interaction Animations ===== */
+.form-control, .form-select {
+  transition: border-color var(--transition-normal) var(--ease-out),
+              box-shadow var(--transition-normal) var(--ease-out);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(126, 87, 194, 0.3);
+}
+
+/* ===== Accordion Animations ===== */
+.accordion-button::after {
+  transition: transform var(--transition-normal) var(--ease-out);
+}
+
+.accordion-collapse {
+  transition: max-height var(--transition-normal) var(--ease-out);
+}
+
+/* ===== Tab Animations ===== */
+.tab-nav-link::after {
+  transition: width var(--transition-normal) var(--ease-out);
+}
+
+.tab-pane {
+  animation: fadeIn var(--transition-normal) var(--ease-out) forwards;
+}
+
+/* ===== Tooltip Animations ===== */
+.tooltip-text {
+  transition: opacity var(--transition-normal) var(--ease-out),
+              visibility var(--transition-normal) var(--ease-out);
+}
+
+/* ===== Progress Bar Animations ===== */
+.progress-bar {
+  transition: width var(--transition-slow) var(--ease-out);
+}
+
+/* ===== Reduced Motion Settings ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .drag-handle {
+    animation: none !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  .animated-gradient {
+    animation: none !important;
+    background-position: 0% 50% !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+  
+  .card:hover {
+    transform: none !important;
+  }
+  
+  .card:hover .card-image img {
+    transform: none !important;
+  }
+}

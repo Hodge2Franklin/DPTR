@@ -1,0 +1,206 @@
+/* Browser compatibility fixes for data unification page */
+
+/* Safari-specific fixes */
+@supports (-webkit-appearance:none) {
+  /* Fix for gradient text in Safari */
+  .stat-number {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Fix for Safari flexbox issues */
+  .benefits-container,
+  .process-steps,
+  .solution-highlights,
+  .results-metrics {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  /* Fix for Safari animation issues */
+  @-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @-webkit-keyframes slideInUp {
+    from {
+      -webkit-transform: translateY(30px);
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Fix for Safari SVG rendering */
+  svg {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+  /* Fix for Firefox gradient issues */
+  .stat-number {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Fix for Firefox animation performance */
+  .service-hero-image svg,
+  .process-visualization svg,
+  .case-study-image svg {
+    will-change: transform;
+  }
+}
+
+/* Edge/IE specific fixes */
+@supports (-ms-ime-align:auto) {
+  /* Fix for Edge gradient issues */
+  .stat-number {
+    color: #6a11cb;
+    background: none;
+  }
+  
+  /* Fix for Edge flexbox issues */
+  .benefits-container > *,
+  .process-steps > *,
+  .solution-highlights > *,
+  .results-metrics > * {
+    margin: 10px;
+  }
+  
+  /* Fix for Edge animation issues */
+  .service-hero-content,
+  .service-hero-image,
+  .benefit,
+  .process-step {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile browser fixes */
+@media (max-width: 768px) {
+  /* Fix for mobile Safari momentum scrolling */
+  .comparison-container,
+  .process-visualization,
+  .case-study-image {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix for mobile tap highlight */
+  .benefit,
+  .process-step,
+  .btn,
+  .read-more {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix for mobile form elements */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents zoom on focus in iOS */
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .data-particle,
+  .data-flow-path,
+  svg [class*="animate"],
+  svg animate {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* High contrast mode fixes */
+@media (forced-colors: active) {
+  .btn,
+  .step-number,
+  .stage-marker {
+    forced-color-adjust: none;
+  }
+  
+  .service-hero::before,
+  .service-case-study::before {
+    display: none;
+  }
+  
+  svg path,
+  svg circle,
+  svg rect {
+    stroke: CanvasText;
+  }
+}
+
+/* Print styles */
+@media print {
+  .service-hero {
+    background: none !important;
+    padding: 20px 0 !important;
+  }
+  
+  .service-hero::before,
+  .service-case-study::before {
+    display: none !important;
+  }
+  
+  .service-hero-content,
+  .service-hero-image {
+    flex: none !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .hero-cta,
+  .service-cta,
+  footer {
+    display: none !important;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    padding: 20px 0 !important;
+  }
+  
+  .benefit,
+  .process-step,
+  .metric,
+  .timeline-stage {
+    break-inside: avoid;
+  }
+  
+  /* Ensure all details are visible when printing */
+  .benefit-details,
+  .step-details {
+    height: auto !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    display: block !important;
+  }
+}

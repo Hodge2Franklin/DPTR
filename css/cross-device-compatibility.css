@@ -1,0 +1,176 @@
+/* Cross-device compatibility CSS for DPTR Website */
+
+/* Mobile devices */
+@media only screen and (max-width: 767px) {
+    /* Improve touch targets */
+    nav ul li a, 
+    .cta-button,
+    .learn-more,
+    .read-more {
+        padding: 12px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    /* Adjust font sizes for readability */
+    body {
+        font-size: 16px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Stack elements for narrow screens */
+    .cards-container,
+    .case-studies-container {
+        flex-direction: column;
+    }
+    
+    .framework-card,
+    .case-study {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Adjust header for mobile */
+    header {
+        padding: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Adjust layout for medium screens */
+    .cards-container,
+    .case-studies-container {
+        flex-wrap: wrap;
+    }
+    
+    .framework-card,
+    .case-study {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+    
+    /* Adjust header for tablets */
+    header {
+        padding: 15px 30px;
+    }
+    
+    nav ul li {
+        margin-left: 20px;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) {
+    /* Remove hover effects that don't work on touch */
+    .framework-card:hover,
+    .case-study:hover {
+        transform: none;
+    }
+    
+    /* Add active state for touch feedback */
+    .framework-card:active,
+    .case-study:active,
+    .cta-button:active,
+    .learn-more:active,
+    .read-more:active {
+        transform: scale(0.98);
+    }
+    
+    /* Increase spacing for touch targets */
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize images for high-DPI displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+    
+    /* Sharper text rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+    /* Adjust for landscape on small devices */
+    .hero {
+        padding: 20px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        margin-bottom: 15px;
+    }
+}
+
+/* Foldable devices */
+@media (max-width: 280px) {
+    /* Ultra-narrow screens like Galaxy Fold */
+    body {
+        font-size: 14px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+    }
+    
+    header {
+        padding: 10px;
+    }
+}
+
+/* iPad-specific fixes */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Fix for iPad sticky header */
+    header {
+        position: -webkit-sticky;
+    }
+    
+    /* Adjust touch targets for iPad */
+    nav ul li a {
+        padding: 10px;
+    }
+}
+
+/* iPhone-specific fixes */
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    /* Fix for iOS Safari */
+    body {
+        cursor: pointer; /* Enables active states on iOS */
+    }
+    
+    /* Fix for iOS momentum scrolling */
+    .cards-container,
+    .case-studies-container {
+        -webkit-overflow-scrolling: touch;
+    }
+}

@@ -1,0 +1,191 @@
+/* Hero animation CSS for DPTR Website */
+
+/* Hero visualization container */
+.hero-visualization {
+    position: relative;
+    overflow: visible;
+}
+
+/* SVG container */
+.hero-visualization svg {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+}
+
+/* Data visualization elements */
+.data-visualization {
+    position: relative;
+}
+
+/* Nodes */
+.node {
+    fill: #6a11cb;
+    r: 8;
+    transition: all 0.5s ease;
+}
+
+.node.accent {
+    fill: #2575fc;
+}
+
+.node.highlight {
+    fill: #00bcd4;
+}
+
+.node.secondary {
+    fill: #ff5e62;
+}
+
+/* Connections */
+.connection {
+    stroke: #6a11cb;
+    stroke-width: 2;
+    stroke-dasharray: 10;
+    stroke-dashoffset: 1000;
+    fill: none;
+    animation: dash 30s linear infinite;
+}
+
+.connection.accent {
+    stroke: #2575fc;
+}
+
+.connection.highlight {
+    stroke: #00bcd4;
+}
+
+/* Pulse circles */
+.pulse-circle {
+    fill: rgba(106, 17, 203, 0.2);
+    transform-origin: center;
+    animation: pulse 3s ease-out infinite;
+}
+
+.pulse-circle.accent {
+    fill: rgba(37, 117, 252, 0.2);
+    animation-delay: 1s;
+}
+
+.pulse-circle.highlight {
+    fill: rgba(0, 188, 212, 0.2);
+    animation-delay: 2s;
+}
+
+/* Floating elements */
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(2n) {
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.floating-element:nth-child(3n) {
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+/* Decorative dots */
+.decorative-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Animations */
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Generate decorative dots with JavaScript */
+.js-generate-dots {
+    position: relative;
+}
+
+/* Hero visualization SVG */
+.hero-visualization-svg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-visualization {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-visualization {
+        max-width: 400px;
+    }
+    
+    .node {
+        r: 6;
+    }
+    
+    .connection {
+        stroke-width: 1.5;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-visualization {
+        max-width: 300px;
+    }
+    
+    .node {
+        r: 5;
+    }
+    
+    .connection {
+        stroke-width: 1;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .node,
+    .connection,
+    .pulse-circle,
+    .floating-element,
+    .decorative-dot {
+        animation: none !important;
+        transition: none !important;
+    }
+}

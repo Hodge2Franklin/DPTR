@@ -1,0 +1,124 @@
+/* Stahl-inspired SVG icons for DPTR website */
+
+/* Data Unification Icon */
+.stahl-icon-data-unification {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Humanize Insights Icon */
+.stahl-icon-humanize-insights {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Express Vision Icon */
+.stahl-icon-express-vision {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Feature icons */
+.stahl-icon-feature {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin-bottom: var(--stahl-space-3);
+}
+
+/* UI icons */
+.stahl-icon-ui {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Icon colors */
+.stahl-icon-blue path,
+.stahl-icon-blue line,
+.stahl-icon-blue circle,
+.stahl-icon-blue rect {
+  stroke: var(--stahl-neon-blue);
+}
+
+.stahl-icon-pink path,
+.stahl-icon-pink line,
+.stahl-icon-pink circle,
+.stahl-icon-pink rect {
+  stroke: var(--stahl-neon-pink);
+}
+
+.stahl-icon-green path,
+.stahl-icon-green line,
+.stahl-icon-green circle,
+.stahl-icon-green rect {
+  stroke: var(--stahl-neon-green);
+}
+
+/* Icon animations */
+.stahl-icon-pulse path,
+.stahl-icon-pulse line,
+.stahl-icon-pulse circle,
+.stahl-icon-pulse rect {
+  animation: stahl-icon-pulse 2s infinite ease-in-out;
+}
+
+@keyframes stahl-icon-pulse {
+  0% { stroke-width: 2; }
+  50% { stroke-width: 3; }
+  100% { stroke-width: 2; }
+}
+
+.stahl-icon-draw path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: stahl-icon-draw 2s forwards;
+}
+
+@keyframes stahl-icon-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Icon hover effects */
+.stahl-icon-hover:hover path,
+.stahl-icon-hover:hover line,
+.stahl-icon-hover:hover circle,
+.stahl-icon-hover:hover rect {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 3px var(--stahl-neon-blue));
+}
+
+/* Icon background effects */
+.stahl-icon-bg {
+  position: relative;
+}
+
+.stahl-icon-bg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(0, 232, 252, 0.1) 0%, rgba(0, 232, 252, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.stahl-icon-bg.pink::after {
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, rgba(255, 0, 255, 0) 70%);
+}
+
+.stahl-icon-bg.green::after {
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0) 70%);
+}

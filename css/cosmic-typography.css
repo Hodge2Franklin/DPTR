@@ -1,0 +1,202 @@
+/* Futurescape-Inspired Cosmic Theme - Typography Styles */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&family=JetBrains+Mono&display=swap');
+
+/* Typography Variables */
+:root {
+  --heading-font: 'Space Grotesk', sans-serif;
+  --body-font: 'Inter', sans-serif;
+  --code-font: 'JetBrains Mono', monospace;
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-accent: #00E8FC;
+  --text-accent-secondary: #9D4EDD;
+  
+  /* Text Shadows */
+  --glow-primary: 0 0 10px rgba(0, 232, 252, 0.5);
+  --glow-secondary: 0 0 15px rgba(157, 78, 221, 0.5);
+}
+
+/* Base Typography */
+.futurescape-theme body {
+  font-family: var(--body-font);
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Headings */
+.futurescape-theme h1, 
+.futurescape-theme h2, 
+.futurescape-theme h3, 
+.futurescape-theme h4, 
+.futurescape-theme h5, 
+.futurescape-theme h6 {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* Main Headings with Gradient */
+.futurescape-theme h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--text-accent), var(--text-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: var(--glow-primary);
+  margin-bottom: 1.5rem;
+}
+
+.futurescape-theme h2 {
+  font-size: 2.5rem;
+  color: var(--text-accent);
+  margin-bottom: 1.25rem;
+}
+
+.futurescape-theme h3 {
+  font-size: 1.75rem;
+  color: var(--text-accent);
+}
+
+.futurescape-theme h4 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.futurescape-theme h5, 
+.futurescape-theme h6 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+/* Paragraphs */
+.futurescape-theme p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Links */
+.futurescape-theme a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.futurescape-theme a:hover {
+  color: var(--text-primary);
+  text-shadow: var(--glow-primary);
+}
+
+/* Navigation Links */
+.futurescape-theme nav a {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.futurescape-theme .cta-button,
+.futurescape-theme button {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Lists */
+.futurescape-theme ul, 
+.futurescape-theme ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.futurescape-theme li {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* Code Elements */
+.futurescape-theme code, 
+.futurescape-theme pre {
+  font-family: var(--code-font);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Blockquotes */
+.futurescape-theme blockquote {
+  font-style: italic;
+  border-left: 3px solid var(--text-accent);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--text-secondary);
+}
+
+/* Special Text Classes */
+.futurescape-theme .glow-text {
+  text-shadow: var(--glow-primary);
+}
+
+.futurescape-theme .gradient-text {
+  background: linear-gradient(to right, var(--text-accent), var(--text-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.futurescape-theme .stat-number {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  text-shadow: var(--glow-primary);
+  line-height: 1;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .futurescape-theme h1 {
+    font-size: 2.5rem;
+  }
+  
+  .futurescape-theme h2 {
+    font-size: 2rem;
+  }
+  
+  .futurescape-theme h3 {
+    font-size: 1.5rem;
+  }
+  
+  .futurescape-theme p {
+    font-size: 1rem;
+  }
+  
+  .futurescape-theme .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

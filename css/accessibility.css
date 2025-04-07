@@ -1,0 +1,138 @@
+/* Accessibility CSS for DPTR Website */
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+    outline: 3px solid #6a11cb;
+    outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #6a11cb;
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .logo a {
+        color: LinkText;
+        background: none;
+        -webkit-text-fill-color: LinkText;
+    }
+    
+    .cta-button {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+    }
+    
+    nav ul li a::after {
+        background: LinkText;
+    }
+    
+    .framework-card {
+        border: 1px solid CanvasText;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .hero-visualization {
+        animation: none !important;
+    }
+    
+    .cta-button:hover {
+        transform: none !important;
+    }
+    
+    nav ul li a::after {
+        transition: none !important;
+    }
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ARIA attributes styling */
+[aria-current="page"] {
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Keyboard navigation improvements */
+[role="button"],
+button,
+a {
+    cursor: pointer;
+}
+
+/* Larger touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    nav ul li a,
+    .cta-button,
+    .learn-more,
+    .read-more,
+    footer a {
+        padding: 12px;
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Text spacing for readability */
+.readable-text {
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+}
+
+/* Color contrast fixes */
+.footer-links a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    color: #ffffff;
+}

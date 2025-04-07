@@ -1,0 +1,335 @@
+/* DPTR.com.au Typography Implementation
+ * This file implements the typography styles from DPTR.com.au while preserving
+ * all content and functionality of the original website.
+ */
+
+/* Import Montserrat font (similar to DPTR.com.au) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Typography Variables */
+:root {
+  --font-primary: 'Montserrat', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+  --font-size-7xl: 4.5rem;    /* 72px */
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Large Display Text */
+.display-text {
+  font-size: var(--font-size-7xl);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: uppercase;
+}
+
+/* Background Text Effect */
+.bg-text-effect {
+  position: relative;
+}
+
+.bg-text-effect .bg-text {
+  position: absolute;
+  top: -0.5em;
+  left: -0.1em;
+  font-size: 5em;
+  font-weight: var(--font-weight-black);
+  opacity: 0.05;
+  z-index: -1;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--dark-blue-start);
+}
+
+.section-dark .bg-text-effect .bg-text {
+  color: var(--white);
+}
+
+/* Lead Text */
+.lead {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1.5rem;
+}
+
+/* Small Text */
+.small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+/* Text Utilities */
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-light {
+  font-weight: var(--font-weight-light);
+}
+
+.text-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.text-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.text-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.text-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.text-black {
+  font-weight: var(--font-weight-black);
+}
+
+/* Links */
+a {
+  color: var(--purple);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #6a46b5;
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Blockquote */
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  border-left: 4px solid var(--purple);
+  background-color: rgba(126, 87, 194, 0.05);
+}
+
+blockquote p {
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+blockquote cite {
+  font-size: var(--font-size-sm);
+  font-style: normal;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Code */
+code {
+  font-family: monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Responsive Typography */
+@media (max-width: 1200px) {
+  :root {
+    --font-size-7xl: 4rem;
+    --font-size-6xl: 3.5rem;
+    --font-size-5xl: 2.75rem;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --font-size-7xl: 3.5rem;
+    --font-size-6xl: 3rem;
+    --font-size-5xl: 2.5rem;
+    --font-size-4xl: 2rem;
+  }
+  
+  .bg-text-effect .bg-text {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-7xl: 3rem;
+    --font-size-6xl: 2.5rem;
+    --font-size-5xl: 2.25rem;
+    --font-size-4xl: 1.75rem;
+    --font-size-3xl: 1.5rem;
+  }
+  
+  .bg-text-effect .bg-text {
+    font-size: 3em;
+  }
+  
+  .lead {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --font-size-7xl: 2.5rem;
+    --font-size-6xl: 2.25rem;
+    --font-size-5xl: 2rem;
+    --font-size-4xl: 1.5rem;
+    --font-size-3xl: 1.25rem;
+    --font-size-2xl: 1.125rem;
+  }
+  
+  .bg-text-effect .bg-text {
+    font-size: 2.5em;
+  }
+  
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .lead {
+    font-size: var(--font-size-base);
+  }
+}

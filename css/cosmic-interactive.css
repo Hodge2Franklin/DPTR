@@ -1,0 +1,304 @@
+/* Space-Themed Interactive Elements */
+
+/* Framework Card Interactive Elements */
+.futurescape-theme .framework-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+/* Particle System */
+.futurescape-theme .framework-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 10%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 20% 50%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 30% 30%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 40% 70%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 40%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 60% 80%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 70% 20%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 80% 60%, rgba(0, 232, 252, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 90% 90%, rgba(0, 232, 252, 0.3) 1px, transparent 0);
+  background-size: 100% 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.futurescape-theme .framework-card:hover::after {
+  opacity: 1;
+  animation: particleFloat 10s infinite linear;
+}
+
+/* Orbital Path */
+.futurescape-theme .framework-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border: 1px dashed rgba(0, 232, 252, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.futurescape-theme .framework-card:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: orbit 20s infinite linear;
+}
+
+/* Card Hover Effects */
+.futurescape-theme .framework-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 
+              0 0 30px rgba(0, 232, 252, 0.3);
+}
+
+/* Card Icon Interactions */
+.futurescape-theme .framework-card .card-icon {
+  transition: transform 0.4s ease;
+}
+
+.futurescape-theme .framework-card:hover .card-icon {
+  transform: scale(1.1);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Card Title Interactions */
+.futurescape-theme .framework-card .card-title {
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.futurescape-theme .framework-card:hover .card-title {
+  color: #00E8FC;
+  text-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+/* Card Description Interactions */
+.futurescape-theme .framework-card .card-description {
+  transition: opacity 0.4s ease;
+}
+
+.futurescape-theme .framework-card:hover .card-description {
+  opacity: 1;
+}
+
+/* Interactive Data Visualization Elements */
+.futurescape-theme .data-visualization {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.futurescape-theme .data-visualization:hover {
+  transform: scale(1.02);
+}
+
+/* Data Points */
+.futurescape-theme .data-point {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futurescape-theme .data-point:hover {
+  transform: scale(1.2);
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.7);
+}
+
+/* Data Connections */
+.futurescape-theme .data-connection {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+  animation: flowDash 3s infinite linear;
+}
+
+/* Tooltip Styling */
+.futurescape-theme .cosmic-tooltip {
+  position: absolute;
+  background: rgba(26, 26, 64, 0.9);
+  border: 1px solid #00E8FC;
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.3);
+  backdrop-filter: blur(5px);
+  max-width: 250px;
+}
+
+.futurescape-theme .cosmic-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: #00E8FC transparent transparent;
+}
+
+.futurescape-theme .cosmic-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Timeline Elements */
+.futurescape-theme .timeline-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.futurescape-theme .timeline-item:hover {
+  transform: scale(1.05);
+}
+
+.futurescape-theme .timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 232, 252, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.futurescape-theme .timeline-item:hover::after {
+  opacity: 1;
+}
+
+/* Interactive Stat Cards */
+.futurescape-theme .stat-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futurescape-theme .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+              0 0 15px rgba(0, 232, 252, 0.3);
+}
+
+.futurescape-theme .stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 232, 252, 0.1), transparent 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.futurescape-theme .stat-card:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.futurescape-theme .stat-card:hover .stat-number {
+  animation: countUp 2s ease-out forwards;
+}
+
+/* Interactive Process Steps */
+.futurescape-theme .process-step {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.futurescape-theme .process-step:hover {
+  transform: scale(1.03);
+}
+
+.futurescape-theme .process-step::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 232, 252, 0.1), rgba(157, 78, 221, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.futurescape-theme .process-step:hover::after {
+  opacity: 1;
+}
+
+.futurescape-theme .step-number {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.futurescape-theme .process-step:hover .step-number {
+  transform: scale(1.2);
+  background-color: #00E8FC;
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.5);
+}
+
+/* Animation Keyframes */
+@keyframes particleFloat {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes flowDash {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+/* JavaScript Hooks */
+.futurescape-theme .js-interactive-element {
+  cursor: pointer;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme .framework-card::after,
+  .futurescape-theme .framework-card::before,
+  .futurescape-theme .framework-card:hover .card-icon,
+  .futurescape-theme .data-connection,
+  .futurescape-theme .stat-card:hover::before {
+    animation: none !important;
+  }
+}

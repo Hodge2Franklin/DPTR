@@ -1,0 +1,174 @@
+/* Cosmic SVG Icon Styles */
+.futurescape-theme svg {
+  filter: drop-shadow(0 0 5px rgba(0, 232, 252, 0.5));
+  transition: all 0.3s ease;
+}
+
+.futurescape-theme svg:hover {
+  filter: drop-shadow(0 0 8px rgba(0, 232, 252, 0.8));
+  transform: scale(1.05);
+}
+
+/* SVG Fill Colors */
+.futurescape-theme svg path,
+.futurescape-theme svg rect,
+.futurescape-theme svg circle,
+.futurescape-theme svg ellipse,
+.futurescape-theme svg polygon {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Primary Icon Colors */
+.futurescape-theme .benefit-icon svg path,
+.futurescape-theme .benefit-icon svg rect,
+.futurescape-theme .benefit-icon svg circle {
+  fill: transparent;
+  stroke: #00E8FC;
+  stroke-width: 2;
+}
+
+/* Animated Icon Elements */
+.futurescape-theme .benefit-icon svg .animate-pulse {
+  animation: iconPulse 3s infinite ease-in-out;
+}
+
+.futurescape-theme .benefit-icon svg .animate-rotate {
+  transform-origin: center;
+  animation: iconRotate 10s infinite linear;
+}
+
+.futurescape-theme .benefit-icon svg .animate-dash {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 20;
+  animation: iconDash 3s infinite linear;
+}
+
+/* Icon Animation Keyframes */
+@keyframes iconPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+@keyframes iconRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes iconDash {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Framework Card Icons */
+.futurescape-theme .framework-card .card-icon {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.futurescape-theme .framework-card .card-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(0, 232, 252, 0.2), transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Image Overlays */
+.futurescape-theme img:not(.logo img) {
+  position: relative;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.futurescape-theme img:not(.logo img):hover {
+  transform: scale(1.02);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Cosmic Image Filter */
+.futurescape-theme img:not(.logo img)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(0, 232, 252, 0.2));
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Hero Image Styling */
+.futurescape-theme .hero-image img,
+.futurescape-theme .service-hero-image img {
+  animation: float 6s infinite ease-in-out;
+  filter: drop-shadow(0 0 15px rgba(0, 232, 252, 0.3));
+}
+
+/* Case Study Images */
+.futurescape-theme .case-study img {
+  border: 1px solid rgba(0, 232, 252, 0.3);
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.2);
+}
+
+/* Testimonial Author Images */
+.futurescape-theme .testimonial-author img {
+  border-radius: 50%;
+  border: 2px solid #00E8FC;
+  box-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+/* Process Diagram Styling */
+.futurescape-theme .process-diagram img,
+.futurescape-theme .comparison-container img {
+  background: rgba(26, 26, 64, 0.5);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 232, 252, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats and Charts */
+.futurescape-theme .chart img,
+.futurescape-theme .stats-visualization img {
+  background: transparent;
+  filter: hue-rotate(180deg) brightness(1.2);
+}
+
+/* Logo Styling */
+.futurescape-theme .logo img {
+  filter: brightness(1.2) drop-shadow(0 0 5px rgba(0, 232, 252, 0.5));
+}
+
+/* Partner Logos */
+.futurescape-theme .partner-logos img {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.futurescape-theme .partner-logos img:hover {
+  opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .futurescape-theme .framework-card .card-icon::before {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme svg,
+  .futurescape-theme img {
+    animation: none !important;
+    transition: none !important;
+  }
+}

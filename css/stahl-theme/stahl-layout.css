@@ -1,0 +1,338 @@
+/* Stahl-inspired layout for DPTR website */
+
+:root {
+  /* Spacing variables */
+  --stahl-space-1: 0.25rem;
+  --stahl-space-2: 0.5rem;
+  --stahl-space-3: 0.75rem;
+  --stahl-space-4: 1rem;
+  --stahl-space-5: 1.25rem;
+  --stahl-space-6: 1.5rem;
+  --stahl-space-8: 2rem;
+  --stahl-space-10: 2.5rem;
+  --stahl-space-12: 3rem;
+  --stahl-space-16: 4rem;
+  --stahl-space-20: 5rem;
+  --stahl-space-24: 6rem;
+  
+  /* Container widths */
+  --stahl-container-sm: 640px;
+  --stahl-container-md: 768px;
+  --stahl-container-lg: 1024px;
+  --stahl-container-xl: 1280px;
+  
+  /* Border radius */
+  --stahl-radius-none: 0;
+  --stahl-radius-sm: 2px;
+  --stahl-radius-md: 4px;
+  --stahl-radius-lg: 8px;
+  
+  /* Z-index layers */
+  --stahl-z-background: -10;
+  --stahl-z-default: 1;
+  --stahl-z-header: 10;
+  --stahl-z-modal: 50;
+  --stahl-z-tooltip: 40;
+}
+
+/* Base layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--stahl-container-xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--stahl-space-4);
+  padding-right: var(--stahl-space-4);
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: var(--stahl-z-header);
+  padding: var(--stahl-space-4) 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--stahl-space-6);
+}
+
+nav a {
+  text-decoration: none;
+  padding: var(--stahl-space-2) var(--stahl-space-3);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, 
+nav a:focus {
+  border-color: var(--stahl-neon-blue);
+}
+
+/* Hero section */
+.hero {
+  padding: var(--stahl-space-20) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: var(--stahl-z-default);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--stahl-z-background);
+}
+
+/* Section spacing */
+section {
+  padding: var(--stahl-space-16) 0;
+}
+
+section.tight {
+  padding: var(--stahl-space-8) 0;
+}
+
+section.spacious {
+  padding: var(--stahl-space-24) 0;
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  gap: var(--stahl-space-6);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Card layouts */
+.card {
+  padding: var(--stahl-space-6);
+  border-radius: var(--stahl-radius-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-footer {
+  margin-top: var(--stahl-space-4);
+}
+
+/* Framework cards */
+.framework-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--stahl-space-6);
+}
+
+.framework-card {
+  padding: var(--stahl-space-6);
+  border-radius: var(--stahl-radius-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Case studies */
+.case-studies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--stahl-space-6);
+}
+
+.case-study {
+  border-radius: var(--stahl-radius-sm);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.case-study-content {
+  padding: var(--stahl-space-6);
+  flex: 1;
+}
+
+/* Buttons */
+.button, 
+button, 
+a.button {
+  display: inline-block;
+  padding: var(--stahl-space-3) var(--stahl-space-6);
+  border-radius: var(--stahl-radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Footer */
+footer {
+  padding: var(--stahl-space-12) 0;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--stahl-space-8);
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 { gap: var(--stahl-space-2); }
+.gap-4 { gap: var(--stahl-space-4); }
+.gap-6 { gap: var(--stahl-space-6); }
+.gap-8 { gap: var(--stahl-space-8); }
+
+.p-0 { padding: 0; }
+.p-2 { padding: var(--stahl-space-2); }
+.p-4 { padding: var(--stahl-space-4); }
+.p-6 { padding: var(--stahl-space-6); }
+.p-8 { padding: var(--stahl-space-8); }
+
+.px-4 { padding-left: var(--stahl-space-4); padding-right: var(--stahl-space-4); }
+.py-4 { padding-top: var(--stahl-space-4); padding-bottom: var(--stahl-space-4); }
+
+.m-0 { margin: 0; }
+.m-2 { margin: var(--stahl-space-2); }
+.m-4 { margin: var(--stahl-space-4); }
+.m-6 { margin: var(--stahl-space-6); }
+.m-8 { margin: var(--stahl-space-8); }
+
+.mt-2 { margin-top: var(--stahl-space-2); }
+.mt-4 { margin-top: var(--stahl-space-4); }
+.mt-6 { margin-top: var(--stahl-space-6); }
+.mt-8 { margin-top: var(--stahl-space-8); }
+
+.mb-2 { margin-bottom: var(--stahl-space-2); }
+.mb-4 { margin-bottom: var(--stahl-space-4); }
+.mb-6 { margin-bottom: var(--stahl-space-6); }
+.mb-8 { margin-bottom: var(--stahl-space-8); }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+
+.overflow-hidden { overflow: hidden; }
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-3, 
+  .framework-cards, 
+  .case-studies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-2, 
+  .grid-3, 
+  .grid-4, 
+  .framework-cards, 
+  .case-studies {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    padding: var(--stahl-space-12) 0;
+  }
+  
+  section {
+    padding: var(--stahl-space-8) 0;
+  }
+}

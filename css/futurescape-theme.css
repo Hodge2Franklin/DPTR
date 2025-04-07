@@ -1,0 +1,461 @@
+/* Futurescape-Inspired Space Theme CSS */
+:root {
+  /* Color Variables */
+  --space-bg-primary: #1A1A40;
+  --space-bg-secondary: #121063;
+  --space-accent-primary: #00E8FC;
+  --space-accent-secondary: #9D4EDD;
+  --space-text: #FFFFFF;
+  --space-card-bg: rgba(26, 26, 64, 0.9);
+  
+  /* Typography Variables */
+  --space-heading-font: 'Space Grotesk', sans-serif;
+  --space-body-font: 'Inter', sans-serif;
+}
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap');
+
+/* Base Styles */
+.futurescape-theme {
+  background: linear-gradient(135deg, var(--space-bg-primary), var(--space-bg-secondary));
+  color: var(--space-text);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Star Background Effect */
+.futurescape-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(2px 2px at 10% 10%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+    radial-gradient(2px 2px at 30% 70%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+    radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+    radial-gradient(2px 2px at 90% 90%, rgba(255, 255, 255, 0.3) 1px, transparent 0);
+  background-size: 100px 100px, 120px 120px, 150px 150px, 200px 200px, 250px 250px, 300px 300px, 350px 350px;
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Typography */
+.futurescape-theme h1, 
+.futurescape-theme h2, 
+.futurescape-theme h3, 
+.futurescape-theme h4, 
+.futurescape-theme h5, 
+.futurescape-theme h6 {
+  font-family: var(--space-heading-font);
+  letter-spacing: 0.02em;
+  color: var(--space-text);
+  position: relative;
+}
+
+.futurescape-theme p, 
+.futurescape-theme li, 
+.futurescape-theme a {
+  font-family: var(--space-body-font);
+  line-height: 1.6;
+}
+
+/* Glowing Text Effect */
+.futurescape-theme .glow-text {
+  text-shadow: 0 0 10px var(--space-accent-primary), 
+               0 0 20px rgba(0, 232, 252, 0.5), 
+               0 0 30px rgba(0, 232, 252, 0.3);
+}
+
+/* Hero Section */
+.futurescape-theme .hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme .hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(157, 78, 221, 0.2), transparent 60%);
+  z-index: -1;
+}
+
+.futurescape-theme .hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--space-accent-primary), var(--space-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.futurescape-theme .hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Framework Cards */
+.futurescape-theme .framework-card {
+  background: var(--space-card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+              0 0 15px rgba(0, 232, 252, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futurescape-theme .framework-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 232, 252, 0.1), transparent 70%);
+  z-index: -1;
+}
+
+.futurescape-theme .framework-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 
+              0 0 20px rgba(0, 232, 252, 0.3);
+}
+
+.futurescape-theme .framework-card h3 {
+  color: var(--space-accent-primary);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.futurescape-theme .framework-card img,
+.futurescape-theme .framework-card svg {
+  filter: drop-shadow(0 0 8px var(--space-accent-primary));
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.futurescape-theme .framework-card:hover img,
+.futurescape-theme .framework-card:hover svg {
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* Buttons */
+.futurescape-theme .btn {
+  background: var(--space-accent-secondary);
+  color: var(--space-text);
+  border: 2px solid var(--space-accent-primary);
+  border-radius: 30px;
+  padding: 0.8rem 2rem;
+  font-family: var(--space-body-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+.futurescape-theme .btn:hover {
+  background: var(--space-accent-primary);
+  color: var(--space-bg-primary);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 232, 252, 0.8);
+}
+
+.futurescape-theme .btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.futurescape-theme .btn:hover::before {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Navigation */
+.futurescape-theme nav {
+  background: rgba(26, 26, 64, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 232, 252, 0.2);
+}
+
+.futurescape-theme nav a {
+  color: var(--space-text);
+  font-family: var(--space-body-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.futurescape-theme nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--space-accent-primary);
+  transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 8px var(--space-accent-primary);
+}
+
+.futurescape-theme nav a:hover {
+  color: var(--space-accent-primary);
+}
+
+.futurescape-theme nav a:hover::before {
+  width: 80%;
+  left: 10%;
+}
+
+.futurescape-theme nav a.active {
+  color: var(--space-accent-primary);
+}
+
+.futurescape-theme nav a.active::before {
+  width: 80%;
+  left: 10%;
+}
+
+/* Statistics Section */
+.futurescape-theme .stats-section {
+  background: rgba(26, 26, 64, 0.7);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme .stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 232, 252, 0.1), transparent 70%);
+  z-index: -1;
+}
+
+.futurescape-theme .stat-item {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.futurescape-theme .stat-number {
+  font-family: var(--space-heading-font);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--space-accent-primary);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+.futurescape-theme .stat-label {
+  font-family: var(--space-body-font);
+  font-size: 1rem;
+  color: var(--space-text);
+  opacity: 0.9;
+}
+
+/* Testimonials */
+.futurescape-theme .testimonial {
+  background: var(--space-card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme .testimonial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at top left, rgba(157, 78, 221, 0.1), transparent 70%);
+  z-index: -1;
+}
+
+.futurescape-theme .testimonial-text {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.futurescape-theme .testimonial-text::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 3rem;
+  color: var(--space-accent-primary);
+  opacity: 0.5;
+}
+
+.futurescape-theme .testimonial-author {
+  font-weight: 500;
+  color: var(--space-accent-primary);
+}
+
+/* Footer */
+.futurescape-theme footer {
+  background: linear-gradient(to bottom, var(--space-bg-primary), var(--space-bg-secondary));
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.futurescape-theme footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 0);
+  background-size: 100px 100px, 120px 120px, 150px 150px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.futurescape-theme footer h4 {
+  color: var(--space-accent-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.futurescape-theme footer a {
+  color: var(--space-text);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.futurescape-theme footer a:hover {
+  opacity: 1;
+  color: var(--space-accent-primary);
+}
+
+/* Form Elements */
+.futurescape-theme input,
+.futurescape-theme textarea,
+.futurescape-theme select {
+  background: rgba(26, 26, 64, 0.8);
+  border: 1px solid rgba(0, 232, 252, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--space-text);
+  font-family: var(--space-body-font);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.futurescape-theme input:focus,
+.futurescape-theme textarea:focus,
+.futurescape-theme select:focus {
+  outline: none;
+  border-color: var(--space-accent-primary);
+  box-shadow: 0 0 10px rgba(0, 232, 252, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .futurescape-theme .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .futurescape-theme .hero-section p {
+    font-size: 1rem;
+  }
+  
+  .futurescape-theme .framework-card {
+    padding: 1.5rem;
+  }
+  
+  .futurescape-theme .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes pulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Animation Classes */
+.futurescape-theme .pulse {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.futurescape-theme .float {
+  animation: float 6s infinite ease-in-out;
+}
+
+/* Accessibility */
+.futurescape-theme .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .futurescape-theme * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

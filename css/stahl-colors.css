@@ -1,0 +1,172 @@
+/* Stahl-inspired color scheme for DPTR website */
+
+:root {
+  /* Base colors */
+  --stahl-bg-dark: #0F1117;
+  --stahl-bg-darker: #080A0F;
+  --stahl-bg-card: #121621;
+  
+  /* Neon accent colors */
+  --stahl-neon-blue: #00E8FC;
+  --stahl-neon-pink: #FF00FF;
+  --stahl-neon-green: #00FF00;
+  --stahl-neon-orange: #FFB800;
+  --stahl-neon-red: #FF4B2B;
+  
+  /* Text colors */
+  --stahl-text-light: #FFFFFF;
+  --stahl-text-muted: #A0A0A0;
+  
+  /* Grid and border colors */
+  --stahl-grid-line: rgba(0, 232, 252, 0.2);
+  --stahl-border-glow: rgba(0, 232, 252, 0.5);
+  
+  /* Gradient backgrounds */
+  --stahl-gradient-dark: linear-gradient(to bottom, #121621, #0F1117);
+  --stahl-gradient-card: linear-gradient(to bottom, #1A1F2E, #121621);
+  
+  /* Overlay colors */
+  --stahl-overlay-dark: rgba(8, 10, 15, 0.8);
+}
+
+/* Base styling */
+body {
+  background-color: var(--stahl-bg-dark);
+  color: var(--stahl-text-light);
+}
+
+/* Header styling */
+header {
+  background-color: var(--stahl-bg-darker);
+  border-bottom: 1px solid var(--stahl-grid-line);
+}
+
+/* Navigation styling */
+nav a {
+  color: var(--stahl-text-light);
+}
+
+nav a:hover, 
+nav a:focus {
+  color: var(--stahl-neon-blue);
+}
+
+/* Button styling */
+.button, 
+button, 
+a.button {
+  background-color: transparent;
+  color: var(--stahl-text-light);
+  border: 1px solid var(--stahl-neon-blue);
+  box-shadow: 0 0 5px var(--stahl-border-glow);
+  transition: all 0.3s ease;
+}
+
+.button:hover, 
+button:hover, 
+a.button:hover {
+  background-color: rgba(0, 232, 252, 0.1);
+  box-shadow: 0 0 10px var(--stahl-border-glow);
+}
+
+.button-primary {
+  background-color: rgba(0, 232, 252, 0.1);
+}
+
+/* Card styling */
+.card {
+  background-color: var(--stahl-bg-card);
+  border: 1px solid var(--stahl-neon-blue);
+  box-shadow: 0 0 10px var(--stahl-border-glow);
+}
+
+/* Section styling */
+section {
+  background-color: var(--stahl-bg-dark);
+}
+
+section.alt {
+  background-color: var(--stahl-bg-darker);
+}
+
+/* Accent colors for different sections */
+.framework-card.data-unification {
+  border-color: var(--stahl-neon-blue);
+}
+
+.framework-card.humanize-insights {
+  border-color: var(--stahl-neon-pink);
+}
+
+.framework-card.express-vision {
+  border-color: var(--stahl-neon-green);
+}
+
+/* Heading accent colors */
+h1 .accent, 
+h2 .accent, 
+h3 .accent {
+  color: var(--stahl-neon-blue);
+}
+
+/* Link styling */
+a {
+  color: var(--stahl-neon-blue);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--stahl-text-light);
+  text-shadow: 0 0 5px var(--stahl-neon-blue);
+}
+
+/* Form element styling */
+input, 
+textarea, 
+select {
+  background-color: var(--stahl-bg-darker);
+  border: 1px solid var(--stahl-grid-line);
+  color: var(--stahl-text-light);
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+  border-color: var(--stahl-neon-blue);
+  box-shadow: 0 0 5px var(--stahl-border-glow);
+}
+
+/* Footer styling */
+footer {
+  background-color: var(--stahl-bg-darker);
+  border-top: 1px solid var(--stahl-grid-line);
+}
+
+/* Utility classes */
+.text-accent {
+  color: var(--stahl-neon-blue);
+}
+
+.border-accent {
+  border-color: var(--stahl-neon-blue);
+}
+
+.bg-dark {
+  background-color: var(--stahl-bg-dark);
+}
+
+.bg-darker {
+  background-color: var(--stahl-bg-darker);
+}
+
+.bg-card {
+  background-color: var(--stahl-bg-card);
+}
+
+/* Grid background */
+.grid-background {
+  background-image: 
+    linear-gradient(to right, var(--stahl-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--stahl-grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
